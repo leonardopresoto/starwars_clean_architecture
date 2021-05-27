@@ -208,7 +208,7 @@ class PersonDetail extends StatelessWidget {
             width: 3.0,
           ),
           Text(
-            prepareLists(data),
+            Utils().prepareLists(data),
             style: TextStyle(
               fontSize: 20.0,
               color: Colors.white,
@@ -219,20 +219,4 @@ class PersonDetail extends StatelessWidget {
     );
   }
 
-  String prepareLists(List<String> list) {
-    String result = "";
-    if (list.isNotEmpty) {
-      for (var person in list) {
-        result = result +
-            person
-                .toString()
-                .split("/")[person.toString().split("/").length - 2] +
-            ",";
-      }
-      result = result.substring(0, (result.length) - 1).replaceAll(",", "\n");
-    } else {
-      result = " - ";
-    }
-    return result;
-  }
 }

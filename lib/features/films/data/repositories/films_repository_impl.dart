@@ -3,37 +3,37 @@ import 'package:meta/meta.dart';
 import 'package:starwars_clean_architecture/core/errors/exceptions.dart';
 import 'package:starwars_clean_architecture/core/errors/failures.dart';
 import 'package:starwars_clean_architecture/core/network/network_info.dart';
-import 'package:starwars_clean_architecture/features/vehicles/data/datasources/vehicles_local_datasource.dart';
-import 'package:starwars_clean_architecture/features/vehicles/data/datasources/vehicles_remote_datasource.dart';
-import 'package:starwars_clean_architecture/features/vehicles/domain/entities/vehicle.dart';
-import 'package:starwars_clean_architecture/features/vehicles/domain/repositories/vehicles_repository.dart';
+import 'package:starwars_clean_architecture/features/films/data/datasources/films_local_datasource.dart';
+import 'package:starwars_clean_architecture/features/films/data/datasources/films_remote_datasource.dart';
+import 'package:starwars_clean_architecture/features/films/domain/entities/film.dart';
+import 'package:starwars_clean_architecture/features/films/domain/repositories/films_repository.dart';
 
-class VehiclesRepositoryImpl implements VehiclesRepository {
-  final VehiclesRemoteDataSource vehiclesRemoteDataSource;
-  final VehiclesLocalDataSource vehiclesLocalDataSource;
+class FilmsRepositoryImpl implements FilmsRepository {
+  final FilmsRemoteDataSource filmsRemoteDataSource;
+  final FilmsLocalDataSource filmsLocalDataSource;
   final NetworkInfo networkInfo;
 
-  VehiclesRepositoryImpl({
-    @required this.vehiclesRemoteDataSource,
-    @required this.vehiclesLocalDataSource,
+  FilmsRepositoryImpl({
+    @required this.filmsRemoteDataSource,
+    @required this.filmsLocalDataSource,
     @required this.networkInfo,
   });
 
   @override
-  Future<Either<Failure, List<Vehicle>>> getVehicles(int pageNumber) async {
+  Future<Either<Failure, List<Film>>> getFilms(int pageNumber) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteListOfVehicles =
-            await vehiclesRemoteDataSource.getVehicles(pageNumber);
-        //vehiclesLocalDataSource.cacheListOfVehicles(remoteListOfVehicles);
-        return Right(remoteListOfVehicles);
+        final remoteListOfFilms =
+            await filmsRemoteDataSource.getFilms(pageNumber);
+        //filmsLocalDataSource.cacheListOfFilms(remoteListOfFilms);
+        return Right(remoteListOfFilms);
       } on ServerException {
         return Left(ServerFailure());
       }
     } else {
       try {
-        // final localListOfVehicles = await vehiclesLocalDataSource.getListOfVehicles();
-        // return Right(localListOfVehicles);
+        // final localListOfFilms = await filmsLocalDataSource.getListOfFilms();
+        // return Right(localListOfFilms);
         return Left(CacheFailure());
       } on CacheException {
         return Left(CacheFailure());

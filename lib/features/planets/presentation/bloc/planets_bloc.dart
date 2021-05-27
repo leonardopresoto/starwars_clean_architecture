@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:starwars_clean_architecture/core/errors/failures.dart';
-import 'package:starwars_clean_architecture/features/people/domain/entities/person.dart';
-import 'package:starwars_clean_architecture/features/people/domain/usecases/get_people.dart';
+import 'package:starwars_clean_architecture/features/planets/domain/entities/planet.dart';
+import 'package:starwars_clean_architecture/features/planets/domain/usecases/get_planets.dart';
 
 import './bloc.dart';
 
@@ -14,34 +14,34 @@ const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 const String INVALID_INPUT_FAILURE_MESSAGE =
     'Invalid Input - The number must be a positive integer or zero.';
 
-class PeopleBloc extends Bloc<PeopleEvent, PeopleState> {
-  final GetPeople getPeople;
+class PlanetsBloc extends Bloc<PlanetsEvent, PlanetsState> {
+  final GetPlanets getPlanets;
 
-  PeopleBloc({
-    @required GetPeople people,
-  })  : assert(people != null),
-        getPeople = people,
+  PlanetsBloc({
+    @required GetPlanets planets,
+  })  : assert(planets != null),
+        getPlanets = planets,
         super(Empty());
 
-  PeopleState get initialState => Empty();
+  PlanetsState get initialState => Empty();
 
   @override
-  Stream<PeopleState> mapEventToState(
-    PeopleEvent event,
+  Stream<PlanetsState> mapEventToState(
+    PlanetsEvent event,
   ) async* {
-    if (event is GetPeopleBlocEvent) {
+    if (event is GetPlanetsBlocEvent) {
       yield Loading();
-      final failureOrPeople = await getPeople(Params(number: 1));
-      yield* _eitherLoadedOrErrorState(failureOrPeople);
+      final failureOrPlanets = await getPlanets(Params(number: 1));
+      yield* _eitherLoadedOrErrorState(failureOrPlanets);
     }
   }
 
-  Stream<PeopleState> _eitherLoadedOrErrorState(
-    Either<Failure, List<Person>> failureOrPeople,
+  Stream<PlanetsState> _eitherLoadedOrErrorState(
+    Either<Failure, List<Planet>> failureOrPlanets,
   ) async* {
-    yield failureOrPeople.fold(
+    yield failureOrPlanets.fold(
       (failure) => Error(message: _mapFailureToMessage(failure)),
-      (listOfPeople) => Loaded(listOfPeople: listOfPeople),
+      (listOfPlanets) => Loaded(listOfPlanets: listOfPlanets),
     );
   }
 

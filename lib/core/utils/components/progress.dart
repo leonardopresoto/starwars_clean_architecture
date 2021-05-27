@@ -3,11 +3,9 @@ import 'package:starwars_clean_architecture/core/config/app_colors.dart';
 import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 
 class Progress extends StatelessWidget {
-  final String message;
 
   const Progress({
     Key key,
-    @required this.message,
   }) : super(key: key);
 
   @override
@@ -28,7 +26,7 @@ class Progress extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                message,
+                'Loading ...',
                 style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,

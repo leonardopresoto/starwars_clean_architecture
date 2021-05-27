@@ -32,18 +32,6 @@ class FilmsRemoteDataSourceImpl implements FilmsRemoteDataSource {
       for (var film in jsonMap['results']) {
         result.add(FilmModel.fromJson(film));
       }
-      do {
-        response = await client
-            .get(Uri.parse(jsonMap['next']));
-        if (response.statusCode == 200) {
-          jsonMap = json.decode(response.body);
-          for (var film in jsonMap['results']) {
-            result.add(FilmModel.fromJson(film));
-          }
-        } else {
-          throw ServerException();
-        }
-      } while (jsonMap['next'] != null);
       return result;
     } else {
       throw ServerException();

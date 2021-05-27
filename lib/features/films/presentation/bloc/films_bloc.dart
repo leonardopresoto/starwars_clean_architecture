@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:starwars_clean_architecture/core/errors/failures.dart';
-import 'package:starwars_clean_architecture/features/people/domain/entities/person.dart';
-import 'package:starwars_clean_architecture/features/people/domain/usecases/get_people.dart';
+import 'package:starwars_clean_architecture/features/films/domain/entities/film.dart';
+import 'package:starwars_clean_architecture/features/films/domain/usecases/get_films.dart';
 
 import './bloc.dart';
 
@@ -14,34 +14,34 @@ const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 const String INVALID_INPUT_FAILURE_MESSAGE =
     'Invalid Input - The number must be a positive integer or zero.';
 
-class PeopleBloc extends Bloc<PeopleEvent, PeopleState> {
-  final GetPeople getPeople;
+class FilmsBloc extends Bloc<FilmsEvent, FilmsState> {
+  final GetFilms getFilms;
 
-  PeopleBloc({
-    @required GetPeople people,
-  })  : assert(people != null),
-        getPeople = people,
+  FilmsBloc({
+    @required GetFilms films,
+  })  : assert(films != null),
+        getFilms = films,
         super(Empty());
 
-  PeopleState get initialState => Empty();
+  FilmsState get initialState => Empty();
 
   @override
-  Stream<PeopleState> mapEventToState(
-    PeopleEvent event,
+  Stream<FilmsState> mapEventToState(
+    FilmsEvent event,
   ) async* {
-    if (event is GetPeopleBlocEvent) {
+    if (event is GetFilmsBlocEvent) {
       yield Loading();
-      final failureOrPeople = await getPeople(Params(number: 1));
-      yield* _eitherLoadedOrErrorState(failureOrPeople);
+      final failureOrFilms = await getFilms(Params(number: 1));
+      yield* _eitherLoadedOrErrorState(failureOrFilms);
     }
   }
 
-  Stream<PeopleState> _eitherLoadedOrErrorState(
-    Either<Failure, List<Person>> failureOrPeople,
+  Stream<FilmsState> _eitherLoadedOrErrorState(
+    Either<Failure, List<Film>> failureOrFilms,
   ) async* {
-    yield failureOrPeople.fold(
+    yield failureOrFilms.fold(
       (failure) => Error(message: _mapFailureToMessage(failure)),
-      (listOfPeople) => Loaded(listOfPeople: listOfPeople),
+      (listOfFilms) => Loaded(listOfFilms: listOfFilms),
     );
   }
 

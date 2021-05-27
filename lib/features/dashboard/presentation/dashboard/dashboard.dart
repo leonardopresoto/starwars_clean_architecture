@@ -3,7 +3,12 @@ import 'package:starwars_clean_architecture/core/config/app_colors.dart';
 import 'package:starwars_clean_architecture/core/config/app_config.dart';
 import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
+import 'package:starwars_clean_architecture/features/films/presentation/pages/film_list.dart';
 import 'package:starwars_clean_architecture/features/people/presentation/pages/person_list.dart';
+import 'package:starwars_clean_architecture/features/planets/presentation/pages/planet_list.dart';
+import 'package:starwars_clean_architecture/features/species/presentation/pages/specie_list.dart';
+import 'package:starwars_clean_architecture/features/starships/presentation/pages/starship_list.dart';
+import 'package:starwars_clean_architecture/features/vehicles/presentation/pages/vehicle_list.dart';
 
 import 'components/dashboard_card.dart';
 
@@ -34,10 +39,10 @@ class Dashboard extends StatelessWidget {
               DASHBOARD_FIRSTCARD_FIRSTCOLOR,
               DASHBOARD_FIRSTCARD_SECONDCOLOR,
               "${AppConfig.urlLocalPhotos}/dashboard/startitle.png",
-              onClick: () => print("Movies"), //Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => PersonList()),
-              // ),
+              onClick: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FilmList()),
+               ),
             ),
             DashboardCard(
               "CHARACTERS",
@@ -56,10 +61,10 @@ class Dashboard extends StatelessWidget {
               DASHBOARD_THIRTHCARD_FIRSTCOLOR,
               DASHBOARD_THIRTHCARD_SECONDCOLOR,
               "${AppConfig.urlLocalPhotos}/dashboard/stardeath.png",
-              onClick: () => print("Starship"), //Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => PersonList()),
-              // ),
+              onClick: () =>  Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => StarshipList()),
+              ),
             ),
             DashboardCard(
               "Vehicles",
@@ -67,10 +72,10 @@ class Dashboard extends StatelessWidget {
               DASHBOARD_FOURTHCARD_FIRSTCOLOR,
               DASHBOARD_FOURTHCARD_SECONDCOLOR,
               "${AppConfig.urlLocalPhotos}/dashboard/tie.png",
-              onClick: () => print("Vehicles"), //Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => PersonList()),
-              // ),
+              onClick: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => VehicleList()),
+              ),
             ),
             DashboardCard(
               "Species",
@@ -78,23 +83,21 @@ class Dashboard extends StatelessWidget {
               DASHBOARD_FIFTHCARD_FIRSTCOLOR,
               DASHBOARD_FIFTHCARD_SECONDCOLOR,
               "${AppConfig.urlLocalPhotos}/dashboard/yoda.png",
-              onClick: () => print("Species"),
-              // onClick: () => Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => PersonList()),
-              // ),
+              onClick: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SpecieList()),
+              ),
             ),
             DashboardCard(
-              "PLANETS",
+              "Planets",
               "List of all planets from Original and Prequel Trilogies",
               DASHBOARD_SIXTHCARD_FIRSTCOLOR,
               DASHBOARD_SIXTHCARD_SECONDCOLOR,
               "${AppConfig.urlLocalPhotos}/dashboard/planet.png",
-              onClick: () => print("Planets"),
-              //Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => PersonList()),
-              // ),
+              onClick: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PlanetList()),
+              ),
             ),
           ],
         ),

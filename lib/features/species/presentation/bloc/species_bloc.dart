@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:starwars_clean_architecture/core/errors/failures.dart';
-import 'package:starwars_clean_architecture/features/people/domain/entities/person.dart';
-import 'package:starwars_clean_architecture/features/people/domain/usecases/get_people.dart';
+import 'package:starwars_clean_architecture/features/species/domain/entities/specie.dart';
+import 'package:starwars_clean_architecture/features/species/domain/usecases/get_species.dart';
 
 import './bloc.dart';
 
@@ -14,34 +14,34 @@ const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 const String INVALID_INPUT_FAILURE_MESSAGE =
     'Invalid Input - The number must be a positive integer or zero.';
 
-class PeopleBloc extends Bloc<PeopleEvent, PeopleState> {
-  final GetPeople getPeople;
+class SpeciesBloc extends Bloc<SpeciesEvent, SpeciesState> {
+  final GetSpecies getSpecies;
 
-  PeopleBloc({
-    @required GetPeople people,
-  })  : assert(people != null),
-        getPeople = people,
+  SpeciesBloc({
+    @required GetSpecies species,
+  })  : assert(species != null),
+        getSpecies = species,
         super(Empty());
 
-  PeopleState get initialState => Empty();
+  SpeciesState get initialState => Empty();
 
   @override
-  Stream<PeopleState> mapEventToState(
-    PeopleEvent event,
+  Stream<SpeciesState> mapEventToState(
+    SpeciesEvent event,
   ) async* {
-    if (event is GetPeopleBlocEvent) {
+    if (event is GetSpeciesBlocEvent) {
       yield Loading();
-      final failureOrPeople = await getPeople(Params(number: 1));
-      yield* _eitherLoadedOrErrorState(failureOrPeople);
+      final failureOrSpecies = await getSpecies(Params(number: 1));
+      yield* _eitherLoadedOrErrorState(failureOrSpecies);
     }
   }
 
-  Stream<PeopleState> _eitherLoadedOrErrorState(
-    Either<Failure, List<Person>> failureOrPeople,
+  Stream<SpeciesState> _eitherLoadedOrErrorState(
+    Either<Failure, List<Specie>> failureOrSpecies,
   ) async* {
-    yield failureOrPeople.fold(
+    yield failureOrSpecies.fold(
       (failure) => Error(message: _mapFailureToMessage(failure)),
-      (listOfPeople) => Loaded(listOfPeople: listOfPeople),
+      (listOfSpecies) => Loaded(listOfSpecies: listOfSpecies),
     );
   }
 

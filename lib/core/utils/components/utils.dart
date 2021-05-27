@@ -26,4 +26,22 @@ class Utils {
   bool isLightTheme() {
     return false;
   }
+
+  String prepareLists(List<String> list) {
+    String result = "";
+    if (list.isNotEmpty) {
+      for (var person in list) {
+        result = result +
+            person
+                .toString()
+                .split("/")[person.toString().split("/").length - 2] +
+            ",";
+      }
+      result = result.substring(0, (result.length) - 1).replaceAll(",", "\n");
+    } else {
+      result = " - ";
+    }
+    return result;
+  }
+
 }

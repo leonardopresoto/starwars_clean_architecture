@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:starwars_clean_architecture/features/dashboard/presentation/dashboard/dashboard.dart';
+import 'package:starwars_clean_architecture/features/films/presentation/pages/film_list.dart';
 import 'package:starwars_clean_architecture/features/people/presentation/pages/person_list.dart';
+import 'package:starwars_clean_architecture/features/planets/presentation/pages/planet_list.dart';
+import 'package:starwars_clean_architecture/features/species/presentation/pages/specie_list.dart';
+import 'package:starwars_clean_architecture/features/starships/presentation/pages/starship_list.dart';
+import 'package:starwars_clean_architecture/features/vehicles/presentation/pages/vehicle_list.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -17,7 +22,7 @@ class MyDrawer extends StatelessWidget {
           ),
           DrawerListTile(
             title: "Movies",
-            redirectTo: Dashboard(),
+            redirectTo: FilmList(),
             icon: Icons.account_balance,
           ),
           DrawerListTile(
@@ -27,22 +32,22 @@ class MyDrawer extends StatelessWidget {
           ),
           DrawerListTile(
             title: "Starships",
-            redirectTo: Dashboard(),
+            redirectTo: StarshipList(),
             icon: Icons.airplanemode_active,
           ),
           DrawerListTile(
             title: "Vehicles",
-            redirectTo: Dashboard(),
+            redirectTo: VehicleList(),
             icon: Icons.directions_car,
           ),
           DrawerListTile(
             title: "Species",
-            redirectTo: Dashboard(),
+            redirectTo: SpecieList(),
             icon: Icons.android_outlined,
           ),
           DrawerListTile(
             title: "Planets",
-            redirectTo: Dashboard(),
+            redirectTo: PlanetList(),
             icon: Icons.place,
           ),
         ],

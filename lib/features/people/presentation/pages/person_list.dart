@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
 import 'package:starwars_clean_architecture/core/utils/components/connection_error.dart';
 import 'package:starwars_clean_architecture/core/utils/components/progress.dart';
-import 'package:starwars_clean_architecture/core/utils/components/unnown_error.dart';
+import 'package:starwars_clean_architecture/core/utils/components/unknown_error.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
 import 'package:starwars_clean_architecture/features/people/presentation/bloc/bloc.dart';
 import 'package:starwars_clean_architecture/features/people/presentation/widgets/loaded_list.dart';
@@ -16,7 +16,6 @@ class PersonList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       theme: ThemeStarWarsApp().darkTheme,
       home: Scaffold(
         drawer: MyDrawer(),
@@ -45,9 +44,7 @@ class PersonList extends StatelessWidget {
                         height: 1,
                       );
                     } else if (state is Loading) {
-                      return Progress(
-                        message: 'Loading ...',
-                      );
+                      return Progress();
                     } else if (state is Loaded) {
                       return LoadedList(
                           personList: state

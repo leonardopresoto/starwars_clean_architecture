@@ -10,6 +10,7 @@ class FilmModel extends Film {
       @required String producer,
       @required String releaseDate,
       @required List<String> characters,
+        @required List<String> planets,
       @required List<String> species,
       @required List<String> vehicles,
       @required List<String> starships,
@@ -24,6 +25,7 @@ class FilmModel extends Film {
             producer: producer,
             releaseDate: releaseDate,
             characters: characters,
+            planets: planets,
             species: species,
             vehicles: vehicles,
             starships: starships,
@@ -33,13 +35,16 @@ class FilmModel extends Film {
 
   factory FilmModel.fromJson(Map<String, dynamic> json) => FilmModel(
         title: json["title"],
-        episodeId: json["episode_id"],
+        episodeId: json["episode_id"].toString(),
         openingCrawl: json["opening_crawl"],
         director: json["director"],
         producer: json["producer"],
         releaseDate: json["release_date"],
         characters: json["characters"] != null
             ? List<String>.from(json["characters"].map((x) => x))
+            : [],
+        planets: json["planets"] != null
+            ? List<String>.from(json["planets"].map((x) => x))
             : [],
         species: json["species"] != null
             ? List<String>.from(json["species"].map((x) => x))
@@ -55,7 +60,7 @@ class FilmModel extends Film {
             .toString()
             .split("/")[json['url'].toString().split("/").length - 2],
         image:
-            "assets/characters/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
+            "assets/films/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
       );
 
   @override

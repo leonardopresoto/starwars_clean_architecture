@@ -3,21 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
 import 'package:starwars_clean_architecture/core/utils/components/connection_error.dart';
 import 'package:starwars_clean_architecture/core/utils/components/progress.dart';
-import 'package:starwars_clean_architecture/core/utils/components/unnown_error.dart';
+import 'package:starwars_clean_architecture/core/utils/components/unknown_error.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
-import 'package:starwars_clean_architecture/features/people/presentation/bloc/bloc.dart';
-import 'package:starwars_clean_architecture/features/people/presentation/widgets/loaded_list.dart';
+import 'package:starwars_clean_architecture/features/films/presentation/bloc/films_event.dart';
+import 'package:starwars_clean_architecture/features/films/presentation/bloc/bloc.dart';
+import 'package:starwars_clean_architecture/features/films/presentation/widgets/loaded_list.dart';
 
 import '../../../../injection_container.dart';
 
-class PersonList extends StatelessWidget {
-  static const String SCREEN_TITLE = "List of Characters";
+class FilmList extends StatelessWidget {
+  static const String SCREEN_TITLE = "List of Films";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       theme: ThemeStarWarsApp().darkTheme,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         drawer: MyDrawer(),
         appBar: AppBar(
@@ -33,25 +34,23 @@ class PersonList extends StatelessWidget {
           ),
         ),
         body: BlocProvider(
-          create: (_) => sl<PeopleBloc>()..add(GetPeopleBlocEvent(1)),
+          create: (_) => sl<FilmsBloc>()..add(GetFilmsBlocEvent(1)),
           child: Center(
             child: Column(
               children: <Widget>[
                 // Top half
-                BlocBuilder<PeopleBloc, PeopleState>(
+                BlocBuilder<FilmsBloc, FilmsState>(
                   builder: (context, state) {
                     if (state is Empty) {
                       return SizedBox(
                         height: 1,
                       );
                     } else if (state is Loading) {
-                      return Progress(
-                        message: 'Loading ...',
-                      );
+                      return Progress();
                     } else if (state is Loaded) {
                       return LoadedList(
-                          personList: state
-                              .listOfPeople); // Text(state.listOfPeople[3].name);
+                          filmList: state
+                              .listOfFilms);
                     } else if (state is Error) {
                       return ConnectionError();
                     } else {
