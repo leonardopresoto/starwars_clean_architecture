@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:starwars_clean_architecture/core/config/app_config.dart';
 import 'package:starwars_clean_architecture/features/planets/domain/entities/planet.dart';
 
 class PlanetModel extends Planet {
@@ -54,7 +55,7 @@ class PlanetModel extends Planet {
             .toString()
             .split("/")[json['url'].toString().split("/").length - 2],
         image:
-            "assets/characters/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
+            "${AppConfig.urlLocalPhotos}/planets/${((int.parse(json['url'].toString().split("/")[json['url'].toString().split("/").length - 2])) % 16 == 0) ? 16.toString() : ((int.parse(json['url'].toString().split("/")[json['url'].toString().split("/").length - 2])) % 16).toString()}.png",
       );
 
   // Map<String, dynamic> toMap() {

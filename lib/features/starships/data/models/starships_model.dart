@@ -66,7 +66,7 @@ class StarshipModel extends Starship {
             .toString()
             .split("/")[json['url'].toString().split("/").length - 2],
         image:
-            "assets/characters/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
+            "assets/starships/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
       );
 
   // Map<String, dynamic> toMap() {

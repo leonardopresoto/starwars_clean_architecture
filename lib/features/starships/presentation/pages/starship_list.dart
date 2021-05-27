@@ -5,6 +5,7 @@ import 'package:starwars_clean_architecture/core/utils/components/connection_err
 import 'package:starwars_clean_architecture/core/utils/components/progress.dart';
 import 'package:starwars_clean_architecture/core/utils/components/unknown_error.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
+import 'package:starwars_clean_architecture/features/starships/presentation/widgets/loaded_list.dart';
 import 'package:starwars_clean_architecture/features/starships/presentation/bloc/starships_event.dart';
 import 'package:starwars_clean_architecture/features/starships/presentation/bloc/bloc.dart';
 
@@ -16,6 +17,7 @@ class StarshipList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeStarWarsApp().darkTheme,
       home: Scaffold(
         drawer: MyDrawer(),
@@ -46,7 +48,8 @@ class StarshipList extends StatelessWidget {
                     } else if (state is Loading) {
                       return Progress();
                     } else if (state is Loaded) {
-                      return Text("AQUIIII"); // Text(state.listOfStarships[3].name);
+                      return LoadedList(
+                          starshipList: state.listOfStarships);
                     } else if (state is Error) {
                       return ConnectionError();
                     } else {

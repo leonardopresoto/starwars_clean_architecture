@@ -5,6 +5,7 @@ import 'package:starwars_clean_architecture/core/utils/components/connection_err
 import 'package:starwars_clean_architecture/core/utils/components/progress.dart';
 import 'package:starwars_clean_architecture/core/utils/components/unknown_error.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
+import 'package:starwars_clean_architecture/features/species/presentation/widgets/loaded_list.dart';
 import 'package:starwars_clean_architecture/features/species/presentation/bloc/species_event.dart';
 import 'package:starwars_clean_architecture/features/species/presentation/bloc/bloc.dart';
 
@@ -16,7 +17,9 @@ class SpecieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      showSemanticsDebugger: false,
       theme: ThemeStarWarsApp().darkTheme,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         drawer: MyDrawer(),
         appBar: AppBar(
@@ -46,7 +49,8 @@ class SpecieList extends StatelessWidget {
                     } else if (state is Loading) {
                       return Progress();
                     } else if (state is Loaded) {
-                      return Text("AQUIIII"); // Text(state.listOfSpecies[3].name);
+                      return LoadedList(
+                          specieList: state.listOfSpecies);
                     } else if (state is Error) {
                       return ConnectionError();
                     } else {

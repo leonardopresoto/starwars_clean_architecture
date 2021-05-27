@@ -60,7 +60,7 @@ class VehicleModel extends Vehicle {
             .toString()
             .split("/")[json['url'].toString().split("/").length - 2],
         image:
-            "assets/characters/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
+            "assets/vehicles/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
       );
 
   // Map<String, dynamic> toMap() {

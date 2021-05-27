@@ -31,75 +31,78 @@ class Dashboard extends StatelessWidget {
             ),
           ),
         ),
-        body: ListView(
-          children: [
-            DashboardCard(
-              "Movies",
-              "List of all movies from Original and Prequel Trilogies",
-              DASHBOARD_FIRSTCARD_FIRSTCOLOR,
-              DASHBOARD_FIRSTCARD_SECONDCOLOR,
-              "${AppConfig.urlLocalPhotos}/dashboard/startitle.png",
-              onClick: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FilmList()),
-               ),
-            ),
-            DashboardCard(
-              "CHARACTERS",
-              "List of all characters from Original and Prequel Trilogies",
-              DASHBOARD_SECONDCARD_FIRSTCOLOR,
-              DASHBOARD_SECONDCARD_SECONDCOLOR,
-              "${AppConfig.urlLocalPhotos}/dashboard/darth.png",
-              onClick: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PersonList()),
+        body: SafeArea(
+          minimum: EdgeInsets.only(bottom: 10),
+          child: ListView(
+            children: [
+              DashboardCard(
+                "Movies",
+                "List of all movies from Original and Prequel Trilogies",
+                DASHBOARD_FIRSTCARD_FIRSTCOLOR,
+                DASHBOARD_FIRSTCARD_SECONDCOLOR,
+                "${AppConfig.urlLocalPhotos}/dashboard/startitle.png",
+                onClick: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FilmList()),
+                 ),
               ),
-            ),
-            DashboardCard(
-              "Starships",
-              "List of all starships from Original and Prequel Trilogies",
-              DASHBOARD_THIRTHCARD_FIRSTCOLOR,
-              DASHBOARD_THIRTHCARD_SECONDCOLOR,
-              "${AppConfig.urlLocalPhotos}/dashboard/stardeath.png",
-              onClick: () =>  Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => StarshipList()),
+              DashboardCard(
+                "CHARACTERS",
+                "List of all characters from Original and Prequel Trilogies",
+                DASHBOARD_SECONDCARD_FIRSTCOLOR,
+                DASHBOARD_SECONDCARD_SECONDCOLOR,
+                "${AppConfig.urlLocalPhotos}/dashboard/darth.png",
+                onClick: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PersonList()),
+                ),
               ),
-            ),
-            DashboardCard(
-              "Vehicles",
-              "List of all vehicles from Original and Prequel Trilogies",
-              DASHBOARD_FOURTHCARD_FIRSTCOLOR,
-              DASHBOARD_FOURTHCARD_SECONDCOLOR,
-              "${AppConfig.urlLocalPhotos}/dashboard/tie.png",
-              onClick: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => VehicleList()),
+              DashboardCard(
+                "Starships",
+                "List of all starships from Original and Prequel Trilogies",
+                DASHBOARD_THIRTHCARD_FIRSTCOLOR,
+                DASHBOARD_THIRTHCARD_SECONDCOLOR,
+                "${AppConfig.urlLocalPhotos}/dashboard/stardeath.png",
+                onClick: () =>  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StarshipList()),
+                ),
               ),
-            ),
-            DashboardCard(
-              "Species",
-              "List of all species from Original and Prequel Trilogies",
-              DASHBOARD_FIFTHCARD_FIRSTCOLOR,
-              DASHBOARD_FIFTHCARD_SECONDCOLOR,
-              "${AppConfig.urlLocalPhotos}/dashboard/yoda.png",
-              onClick: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SpecieList()),
+              DashboardCard(
+                "Vehicles",
+                "List of all vehicles from Original and Prequel Trilogies",
+                DASHBOARD_FOURTHCARD_FIRSTCOLOR,
+                DASHBOARD_FOURTHCARD_SECONDCOLOR,
+                "${AppConfig.urlLocalPhotos}/dashboard/tie.png",
+                onClick: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => VehicleList()),
+                ),
               ),
-            ),
-            DashboardCard(
-              "Planets",
-              "List of all planets from Original and Prequel Trilogies",
-              DASHBOARD_SIXTHCARD_FIRSTCOLOR,
-              DASHBOARD_SIXTHCARD_SECONDCOLOR,
-              "${AppConfig.urlLocalPhotos}/dashboard/planet.png",
-              onClick: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PlanetList()),
+              DashboardCard(
+                "Species",
+                "List of all species from Original and Prequel Trilogies",
+                DASHBOARD_FIFTHCARD_FIRSTCOLOR,
+                DASHBOARD_FIFTHCARD_SECONDCOLOR,
+                "${AppConfig.urlLocalPhotos}/dashboard/yoda.png",
+                onClick: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SpecieList()),
+                ),
               ),
-            ),
-          ],
+              DashboardCard(
+                "Planets",
+                "List of all planets from Original and Prequel Trilogies",
+                DASHBOARD_SIXTHCARD_FIRSTCOLOR,
+                DASHBOARD_SIXTHCARD_SECONDCOLOR,
+                "${AppConfig.urlLocalPhotos}/dashboard/planet.png",
+                onClick: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PlanetList()),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

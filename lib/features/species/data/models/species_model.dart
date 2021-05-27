@@ -44,9 +44,11 @@ class SpecieModel extends Specie {
         eyeColors: json["eye_colors"],
         hairColors: json["hair_colors"],
         averageLifespan: json["average_lifespan"],
-        homeworld: json["homeworld"]
-            .toString()
-            .split("/")[json['homeworld'].toString().split("/").length - 2],
+        homeworld: json["homeworld"] != null
+            ? json["homeworld"]
+                .toString()
+                .split("/")[json['homeworld'].toString().split("/").length - 2]
+            : "",
         language: json["language"],
         films: json["films"] != null
             ? List<String>.from(json["films"].map((x) => x))
@@ -59,7 +61,7 @@ class SpecieModel extends Specie {
             .toString()
             .split("/")[json['url'].toString().split("/").length - 2],
         image:
-            "assets/characters/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
+            "assets/species/${json['url'].toString().split("/")[json['url'].toString().split("/").length - 2]}.png",
       );
 
   // Map<String, dynamic> toMap() {
