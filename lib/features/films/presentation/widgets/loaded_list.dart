@@ -9,8 +9,8 @@ import 'filmlist_card.dart';
 
 class LoadedList extends StatefulWidget {
   const LoadedList({
-    Key key,
-    @required this.filmList,
+    Key? key,
+    required this.filmList,
   }) : super(key: key);
 
   final List<Film> filmList;
@@ -123,12 +123,12 @@ class _LoadedListState extends State<LoadedList> {
             color: _currentIndex == index ? YELLOW_STARWARS : (Utils().isLightTheme())? Colors.grey:Colors.white,
           ),
         );
-      }),
+      }) as List<Widget>,
     );
   }
 
-  List<T> map<T>(List list, Function handler) {
-    List<T> result = [];
+  List<T?> map<T>(List list, Function handler) {
+    List<T?> result = [];
     for (var i = 0; i < list.length; i++) {
       result.add(handler(i, list[i]));
     }

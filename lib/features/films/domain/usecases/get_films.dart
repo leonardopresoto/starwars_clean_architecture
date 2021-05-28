@@ -6,7 +6,7 @@ import 'package:starwars_clean_architecture/features/films/domain/entities/film.
 import 'package:starwars_clean_architecture/features/films/domain/repositories/films_repository.dart';
 
 class GetFilms implements UseCase<List<Film>, Params> {
-  final FilmsRepository repository;
+  final FilmsRepository? repository;
 
   GetFilms(this.repository);
 
@@ -15,14 +15,14 @@ class GetFilms implements UseCase<List<Film>, Params> {
     if (params.number == null) {
       return Left(InvalidTextError());
     }
-    return await repository.getFilms(params.number);
+    return await repository!.getFilms(params.number);
   }
 }
 
 class Params {
   final int number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
   List<Object> get props => [number];
 }

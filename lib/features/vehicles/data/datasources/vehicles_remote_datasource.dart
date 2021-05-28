@@ -14,30 +14,30 @@ abstract class VehiclesRemoteDataSource {
 }
 
 class VehiclesRemoteDataSourceImpl implements VehiclesRemoteDataSource {
-  final http.Client client;
+  final http.Client? client;
 
-  VehiclesRemoteDataSourceImpl({@required this.client});
+  VehiclesRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<VehicleModel>> getVehicles(int pageNumber) async {
     List<VehicleModel> result = [];
-    Map<String, dynamic> jsonMap;
+    Map<String, dynamic>? jsonMap;
     Response response;
 
-    response = await client
+    response = await client!
         .get(Uri.parse("http://swapi.dev/api/vehicles/?page=$pageNumber"));
 
     if (response.statusCode == 200) {
       jsonMap = json.decode(response.body);
-      for (var vehicle in jsonMap['results']) {
+      for (var vehicle in jsonMap!['results']) {
         result.add(VehicleModel.fromJson(vehicle));
       }
       do {
-        response = await client
-            .get(Uri.parse(jsonMap['next']));
+        response = await client!
+            .get(Uri.parse(jsonMap!['next']));
         if (response.statusCode == 200) {
           jsonMap = json.decode(response.body);
-          for (var vehicle in jsonMap['results']) {
+          for (var vehicle in jsonMap!['results']) {
             result.add(VehicleModel.fromJson(vehicle));
           }
         } else {

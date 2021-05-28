@@ -29,7 +29,7 @@ class VehicleCard extends StatelessWidget {
                 header: Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      vehicle.name,
+                      vehicle.name!,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -49,8 +49,8 @@ class VehicleCard extends StatelessWidget {
                     _buildDataRow("Cargo Capacity : ", vehicle.cargoCapacity),
                     _buildDataRow("Consumables : ", vehicle.consumables),
                     _buildDataRow("Vehicle Class : ", vehicle.vehicleClass),
-                    _buildDataRow("Pilots : ", Utils().prepareLists(vehicle.pilots)),
-                    _buildDataRow("Films : ", Utils().prepareLists(vehicle.films)),
+                    _buildDataRow("Pilots : ", Utils().prepareLists(vehicle.pilots!)),
+                    _buildDataRow("Films : ", Utils().prepareLists(vehicle.films!)),
                   ],
                 ),
                 builder: (_, collapsed, expanded) {
@@ -62,7 +62,7 @@ class VehicleCard extends StatelessWidget {
                       theme: const ExpandableThemeData(crossFadePoint: 0),
                     ),
                   );
-                }, collapsed: null,
+                }, collapsed: SizedBox.shrink(),
               ),
             ),
           ],
@@ -71,7 +71,7 @@ class VehicleCard extends StatelessWidget {
     ));
   }
 
-  Padding _buildDataRow(String description, String data) {
+  Padding _buildDataRow(String description, String? data) {
     return Padding(
       padding: EdgeInsets.only(bottom: 5, right: 5),
       child: Row(

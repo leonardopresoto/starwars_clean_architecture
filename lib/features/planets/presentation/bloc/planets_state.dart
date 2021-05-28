@@ -15,7 +15,7 @@ class Loading extends PlanetsState {}
 class Loaded extends PlanetsState {
   final List<Planet> listOfPlanets;
 
-  Loaded({@required this.listOfPlanets});
+  Loaded({required this.listOfPlanets});
 
   @override
   List<Object> get props => [listOfPlanets];
@@ -24,7 +24,7 @@ class Loaded extends PlanetsState {
 class Error extends PlanetsState {
   final String message;
 
-  Error({@required this.message});
+  Error({required this.message});
 
   @override
   List<Object> get props => [message];

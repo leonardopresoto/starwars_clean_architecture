@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 
 class PeopleListCard extends StatelessWidget {
-  final String image;
+  final String? image;
   final Function onClick;
-  final String name;
+  final String? name;
   final Color color1;
   final Color color2;
 
@@ -13,7 +13,7 @@ class PeopleListCard extends StatelessWidget {
     this.name,
     this.color1,
     this.color2, {
-    @required this.onClick,
+    required this.onClick,
   });
 
   @override
@@ -38,7 +38,7 @@ class PeopleListCard extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 15,
-                    child: Image.asset(image),
+                    child: Image.asset(image!),
                   ),
                   Expanded(
                     flex: 5,
@@ -49,7 +49,7 @@ class PeopleListCard extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(name,
+                          Text(name!,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,

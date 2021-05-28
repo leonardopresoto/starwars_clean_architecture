@@ -4,7 +4,7 @@ import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 
 class ConnectionError extends StatelessWidget {
   const ConnectionError({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

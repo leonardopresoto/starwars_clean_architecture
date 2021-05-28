@@ -6,7 +6,7 @@ import 'package:starwars_clean_architecture/features/people/domain/entities/pers
 import 'package:starwars_clean_architecture/features/people/domain/repositories/people_repository.dart';
 
 class GetPeople implements UseCase<List<Person>, Params> {
-  final PeopleRepository repository;
+  final PeopleRepository? repository;
 
   GetPeople(this.repository);
 
@@ -15,14 +15,14 @@ class GetPeople implements UseCase<List<Person>, Params> {
     if (params.number == null) {
       return Left(InvalidTextError());
     }
-    return await repository.getPeople(params.number);
+    return await repository!.getPeople(params.number);
   }
 }
 
 class Params {
-  final int number;
+  final int? number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
-  List<Object> get props => [number];
+  List<Object?> get props => [number];
 }

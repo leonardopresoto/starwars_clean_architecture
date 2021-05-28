@@ -10,8 +10,8 @@ const String SCREEN_TITLE = "List of Species";
 
 class LoadedList extends StatelessWidget {
   const LoadedList({
-    Key key,
-    @required this.specieList,
+    Key? key,
+    required this.specieList,
   }) : super(key: key);
 
   final List<Specie> specieList;
@@ -24,8 +24,8 @@ class LoadedList extends StatelessWidget {
 
 class SpecieListPage extends StatefulWidget {
   const SpecieListPage({
-    Key key,
-    @required this.specieList,
+    Key? key,
+    required this.specieList,
   }) : super(key: key);
 
   final List<Specie> specieList;

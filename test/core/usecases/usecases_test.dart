@@ -3,7 +3,7 @@ import 'package:starwars_clean_architecture/core/usecases/usecases.dart';
 
 void main() {
 
-  NoParams noParams;
+  late NoParams noParams;
 
   setUp(() {
     noParams = NoParams();

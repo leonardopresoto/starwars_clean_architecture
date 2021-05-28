@@ -1,19 +1,19 @@
 class Planet {
 
-  String name;
-  String rotationPeriod;
-  String orbitalPeriod;
-  String diameter;
-  String climate;
-  String gravity;
-  String terrain;
-  String surfaceWater;
-  String population;
-  List<String> residents;
-  List<String> films;
-  String id;
-  String image;
-  String url;
+  String? name;
+  String? rotationPeriod;
+  String? orbitalPeriod;
+  String? diameter;
+  String? climate;
+  String? gravity;
+  String? terrain;
+  String? surfaceWater;
+  String? population;
+  List<String>? residents;
+  List<String>? films;
+  String? id;
+  String? image;
+  String? url;
 
   Planet({
     this.name,

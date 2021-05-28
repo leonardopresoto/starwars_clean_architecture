@@ -16,8 +16,8 @@ class MockGetPeople extends Mock
 
 
 void main() {
-  PeopleBloc bloc;
-  MockGetPeople mockGetPeople;
+  PeopleBloc? bloc;
+  late MockGetPeople mockGetPeople;
 
   setUp(() {
     mockGetPeople = MockGetPeople();
@@ -29,7 +29,7 @@ void main() {
 
   test('initialState should be Empty', () {
     // assert
-    expect(bloc.initialState, equals(Empty()));
+    expect(bloc!.initialState, equals(Empty()));
   });
 
   group('GetPeople', () {
@@ -46,11 +46,11 @@ void main() {
       'should get data from the concrete use case',
           () async {
         // arrange
-        when(mockGetPeople(any))
+        when(mockGetPeople(any!))
             .thenAnswer((_) async => Right(listOfPeople));
         // act
-        bloc.add(GetPeopleBlocEvent(tNumberParsed));
-        await untilCalled(mockGetPeople(any));
+        bloc!.add(GetPeopleBlocEvent(tNumberParsed));
+        await untilCalled(mockGetPeople(any!));
         // assert
         verify(mockGetPeople(Params(number: tNumberParsed)));
       },
@@ -60,7 +60,7 @@ void main() {
       'should emit [Loading, Loaded] when data is gotten successfully',
           () async {
         // arrange
-        when(mockGetPeople(any))
+        when(mockGetPeople(any!))
             .thenAnswer((_) async => Right(listOfPeople));
         // assert later
         final expected = [
@@ -70,7 +70,7 @@ void main() {
         ];
         expectLater(bloc, emitsInOrder(expected));
         // act
-        bloc.add(GetPeopleBlocEvent(tNumberParsed));
+        bloc!.add(GetPeopleBlocEvent(tNumberParsed));
       },
     );
 
@@ -78,7 +78,7 @@ void main() {
       'should emit [Loading, Error] when getting data fails',
           () async {
         // arrange
-        when(mockGetPeople(any))
+        when(mockGetPeople(any!))
             .thenAnswer((_) async => Left(ServerFailure()));
         // assert later
         final expected = [
@@ -88,7 +88,7 @@ void main() {
         ];
         expectLater(bloc, emitsInOrder(expected));
         // act
-        bloc.add(GetPeopleBlocEvent(tNumberParsed));
+        bloc!.add(GetPeopleBlocEvent(tNumberParsed));
       },
     );
 
@@ -96,7 +96,7 @@ void main() {
       'should emit [Loading, Error] with a proper message for the error when getting data fails',
           () async {
         // arrange
-        when(mockGetPeople(any))
+        when(mockGetPeople(any!))
             .thenAnswer((_) async => Left(CacheFailure()));
         // assert later
         final expected = [
@@ -106,7 +106,7 @@ void main() {
         ];
         expectLater(bloc, emitsInOrder(expected));
         // act
-        bloc.add(GetPeopleBlocEvent(tNumberParsed));
+        bloc!.add(GetPeopleBlocEvent(tNumberParsed));
       },
     );
   });

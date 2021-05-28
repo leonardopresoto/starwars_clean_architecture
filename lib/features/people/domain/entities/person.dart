@@ -1,20 +1,20 @@
 class Person {
-  String name;
-  String height;
-  String mass;
-  String hairColor;
-  String skinColor;
-  String eyeColor;
-  String birthYear;
-  String gender;
-  String homeworld;
-  List<String> films;
-  List<String> species;
-  List<String> vehicles;
-  List<String> starships;
-  String url;
-  String id;
-  String image;
+  String? name;
+  String? height;
+  String? mass;
+  String? hairColor;
+  String? skinColor;
+  String? eyeColor;
+  String? birthYear;
+  String? gender;
+  String? homeworld;
+  List<String>? films;
+  List<String>? species;
+  List<String>? vehicles;
+  List<String>? starships;
+  String? url;
+  String? id;
+  String? image;
 
   Person({
     this.name,

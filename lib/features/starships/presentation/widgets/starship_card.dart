@@ -23,7 +23,7 @@ class StarShipCard extends StatelessWidget {
               height: 150,
               child: Container(
                 child: Image.asset(
-                  starship.image,
+                  starship.image!,
                   //fit: BoxFit.cover,
                 ),
                 decoration: BoxDecoration(
@@ -47,13 +47,13 @@ class StarShipCard extends StatelessWidget {
                 header: Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      starship.name,
+                      starship.name!,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
                     )),
-                collapsed: null,
+                collapsed: Text(''),
                 expanded: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -71,8 +71,8 @@ class StarShipCard extends StatelessWidget {
                         "Hyperdrive Rating : ", starship.hyperdriveRating),
                     _buildDataRow("MegaLight : ", starship.mglt),
                     _buildDataRow("Starship Class : ", starship.starshipClass),
-                    _buildDataRow("Pilots : ", prepareLists(starship.pilots)),
-                    _buildDataRow("Films : ", prepareLists(starship.films)),
+                    _buildDataRow("Pilots : ", prepareLists(starship.pilots!)),
+                    _buildDataRow("Films : ", prepareLists(starship.films!)),
                   ],
                 ),
                 builder: (_, collapsed, expanded) {
@@ -93,7 +93,7 @@ class StarShipCard extends StatelessWidget {
     ));
   }
 
-  Padding _buildDataRow(String description, String data) {
+  Padding _buildDataRow(String description, String? data) {
     return Padding(
       padding: EdgeInsets.only(bottom: 5, right: 5),
       child: Row(

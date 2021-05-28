@@ -18,20 +18,20 @@ class _PlanetCardState extends State<PlanetCard> {
 
   double _size = 96;
   IconData _icon = Icons.keyboard_arrow_up;
-  Widget _row;
+  Widget? _row;
   @override
   Widget build(BuildContext context) {
     _row = _buildRow(1);
     final planetThumbnail = Container(
       alignment: FractionalOffset.centerLeft,
       child: Image(
-        image: AssetImage(widget.planet.image),
+        image: AssetImage(widget.planet.image!),
         height: 80.0,
         width: 80.0,
       ),
     );
 
-    Widget _planetValue({String value, String description}) {
+    Widget _planetValue({String? value, required String description}) {
       return Row(children: <Widget>[
         Text(description, style: TextStyle(color: carContent_TextColor),),
         Container(width: 4.0),
@@ -54,7 +54,7 @@ class _PlanetCardState extends State<PlanetCard> {
         children: <Widget>[
       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-        Text(widget.planet.name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: carContent_TextColor),),
+        Text(widget.planet.name!, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: carContent_TextColor),),
             IconButton(icon: Icon(_icon), onPressed: () {
               setState(() {
                 if(_size == 96){
@@ -69,7 +69,7 @@ class _PlanetCardState extends State<PlanetCard> {
               });
             })
       ]),
-          _row
+          _row!
         ],
       ),
     );

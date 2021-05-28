@@ -60,7 +60,8 @@ class SpeciesLocalDataSourceImpl implements SpeciesLocalDataSource {
   Future<List<SpecieModel>> selectSpecies() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
-
+    final List<SpecieModel> listOfSpecieModel = [];
+    return listOfSpecieModel;
     // return List.generate(maps.length, (i) {
     //   return SpecieModel(
     //     id: maps[i][_id],
@@ -87,12 +88,12 @@ class SpeciesLocalDataSourceImpl implements SpeciesLocalDataSource {
     // Get a reference to the database.
     final Database db = await getDatabase();
     // ignore: unused_local_variable
-    for (var specie in listOfSpecieModel) {
-      return await db.insert(
-        _tableName,
-        Map(), //specie.toMap();
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
-    }
+    // for (var specie in listOfSpecieModel) {
+    //   return await db.insert(
+    //     _tableName,
+    //     Map(), //specie.toMap();
+    //     conflictAlgorithm: ConflictAlgorithm.replace,
+    //   );
+    // }
   }
 }

@@ -61,6 +61,8 @@ class StarshipsLocalDataSourceImpl implements StarshipsLocalDataSource {
   Future<List<StarshipModel>> selectStarships() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
+    final List<StarshipModel> listOfStarshipModel = [];
+    return listOfStarshipModel;
 
     // return List.generate(maps.length, (i) {
     //   return StarshipModel(
@@ -88,12 +90,12 @@ class StarshipsLocalDataSourceImpl implements StarshipsLocalDataSource {
     // Get a reference to the database.
     final Database db = await getDatabase();
     // ignore: unused_local_variable
-    for (var starship in listOfStarshipModel) {
-      return await db.insert(
-        _tableName,
-        Map(), //starship.toMap();
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
-    }
+    // for (var starship in listOfStarshipModel) {
+    //   return await db.insert(
+    //     _tableName,
+    //     Map(), //starship.toMap();
+    //     conflictAlgorithm: ConflictAlgorithm.replace,
+    //   );
+    // }
   }
 }

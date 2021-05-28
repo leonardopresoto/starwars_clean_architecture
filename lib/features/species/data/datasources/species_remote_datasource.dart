@@ -14,30 +14,30 @@ abstract class SpeciesRemoteDataSource {
 }
 
 class SpeciesRemoteDataSourceImpl implements SpeciesRemoteDataSource {
-  final http.Client client;
+  final http.Client? client;
 
-  SpeciesRemoteDataSourceImpl({@required this.client});
+  SpeciesRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<SpecieModel>> getSpecies(int pageNumber) async {
     List<SpecieModel> result = [];
-    Map<String, dynamic> jsonMap;
+    Map<String, dynamic>? jsonMap;
     Response response;
 
-    response = await client
+    response = await client!
         .get(Uri.parse("http://swapi.dev/api/species/?page=$pageNumber"));
 
     if (response.statusCode == 200) {
       jsonMap = json.decode(response.body);
-      for (var specie in jsonMap['results']) {
+      for (var specie in jsonMap!['results']) {
         result.add(SpecieModel.fromJson(specie));
       }
       do {
-        response = await client
-            .get(Uri.parse(jsonMap['next']));
+        response = await client!
+            .get(Uri.parse(jsonMap!['next']));
         if (response.statusCode == 200) {
           jsonMap = json.decode(response.body);
-          for (var specie in jsonMap['results']) {
+          for (var specie in jsonMap!['results']) {
             result.add(SpecieModel.fromJson(specie));
           }
         } else {

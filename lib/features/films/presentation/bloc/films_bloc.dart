@@ -18,7 +18,7 @@ class FilmsBloc extends Bloc<FilmsEvent, FilmsState> {
   final GetFilms getFilms;
 
   FilmsBloc({
-    @required GetFilms films,
+    required GetFilms films,
   })  : assert(films != null),
         getFilms = films,
         super(Empty());

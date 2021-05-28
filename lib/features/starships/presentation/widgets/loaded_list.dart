@@ -10,8 +10,8 @@ const String SCREEN_TITLE = "List of Starships";
 
 class LoadedList extends StatelessWidget {
   const LoadedList({
-    Key key,
-    @required this.starshipList,
+    Key? key,
+    required this.starshipList,
   }) : super(key: key);
 
   final List<Starship> starshipList;
@@ -24,8 +24,8 @@ class LoadedList extends StatelessWidget {
 
 class StarshipListPage extends StatefulWidget {
   const StarshipListPage({
-    Key key,
-    @required this.starshipList,
+    Key? key,
+    required this.starshipList,
   }) : super(key: key);
 
   final List<Starship> starshipList;

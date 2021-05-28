@@ -18,7 +18,7 @@ class PlanetsBloc extends Bloc<PlanetsEvent, PlanetsState> {
   final GetPlanets getPlanets;
 
   PlanetsBloc({
-    @required GetPlanets planets,
+    required GetPlanets planets,
   })  : assert(planets != null),
         getPlanets = planets,
         super(Empty());

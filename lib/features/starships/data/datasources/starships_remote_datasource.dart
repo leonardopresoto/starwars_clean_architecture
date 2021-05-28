@@ -14,30 +14,30 @@ abstract class StarshipsRemoteDataSource {
 }
 
 class StarshipsRemoteDataSourceImpl implements StarshipsRemoteDataSource {
-  final http.Client client;
+  final http.Client? client;
 
-  StarshipsRemoteDataSourceImpl({@required this.client});
+  StarshipsRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<StarshipModel>> getStarships(int pageNumber) async {
     List<StarshipModel> result = [];
-    Map<String, dynamic> jsonMap;
+    Map<String, dynamic>? jsonMap;
     Response response;
 
-    response = await client
+    response = await client!
         .get(Uri.parse("http://swapi.dev/api/starships/?page=$pageNumber"));
 
     if (response.statusCode == 200) {
       jsonMap = json.decode(response.body);
-      for (var starship in jsonMap['results']) {
+      for (var starship in jsonMap!['results']) {
         result.add(StarshipModel.fromJson(starship));
       }
       do {
-        response = await client
-            .get(Uri.parse(jsonMap['next']));
+        response = await client!
+            .get(Uri.parse(jsonMap!['next']));
         if (response.statusCode == 200) {
           jsonMap = json.decode(response.body);
-          for (var starship in jsonMap['results']) {
+          for (var starship in jsonMap!['results']) {
             result.add(StarshipModel.fromJson(starship));
           }
         } else {

@@ -14,22 +14,22 @@ abstract class FilmsRemoteDataSource {
 }
 
 class FilmsRemoteDataSourceImpl implements FilmsRemoteDataSource {
-  final http.Client client;
+  final http.Client? client;
 
-  FilmsRemoteDataSourceImpl({@required this.client});
+  FilmsRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<FilmModel>> getFilms(int pageNumber) async {
     List<FilmModel> result = [];
-    Map<String, dynamic> jsonMap;
+    Map<String, dynamic>? jsonMap;
     Response response;
 
-    response = await client
+    response = await client!
         .get(Uri.parse("http://swapi.dev/api/films/?page=$pageNumber"));
 
     if (response.statusCode == 200) {
       jsonMap = json.decode(response.body);
-      for (var film in jsonMap['results']) {
+      for (var film in jsonMap!['results']) {
         result.add(FilmModel.fromJson(film));
       }
       return result;

@@ -9,22 +9,22 @@ import 'package:starwars_clean_architecture/features/species/domain/entities/spe
 import 'package:starwars_clean_architecture/features/species/domain/repositories/species_repository.dart';
 
 class SpeciesRepositoryImpl implements SpeciesRepository {
-  final SpeciesRemoteDataSource speciesRemoteDataSource;
-  final SpeciesLocalDataSource speciesLocalDataSource;
-  final NetworkInfo networkInfo;
+  final SpeciesRemoteDataSource? speciesRemoteDataSource;
+  final SpeciesLocalDataSource? speciesLocalDataSource;
+  final NetworkInfo? networkInfo;
 
   SpeciesRepositoryImpl({
-    @required this.speciesRemoteDataSource,
-    @required this.speciesLocalDataSource,
-    @required this.networkInfo,
+    required this.speciesRemoteDataSource,
+    required this.speciesLocalDataSource,
+    required this.networkInfo,
   });
 
   @override
   Future<Either<Failure, List<Specie>>> getSpecies(int pageNumber) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo!.isConnected) {
       try {
         final remoteListOfSpecies =
-            await speciesRemoteDataSource.getSpecies(pageNumber);
+            await speciesRemoteDataSource!.getSpecies(pageNumber);
         //speciesLocalDataSource.cacheListOfSpecies(remoteListOfSpecies);
         return Right(remoteListOfSpecies);
       } on ServerException {

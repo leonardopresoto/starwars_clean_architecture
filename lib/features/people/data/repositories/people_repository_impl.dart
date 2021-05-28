@@ -9,22 +9,22 @@ import 'package:starwars_clean_architecture/features/people/domain/entities/pers
 import 'package:starwars_clean_architecture/features/people/domain/repositories/people_repository.dart';
 
 class PeopleRepositoryImpl implements PeopleRepository {
-  final PeopleRemoteDataSource peopleRemoteDataSource;
-  final PeopleLocalDataSource peopleLocalDataSource;
-  final NetworkInfo networkInfo;
+  final PeopleRemoteDataSource? peopleRemoteDataSource;
+  final PeopleLocalDataSource? peopleLocalDataSource;
+  final NetworkInfo? networkInfo;
 
   PeopleRepositoryImpl({
-    @required this.peopleRemoteDataSource,
-    @required this.peopleLocalDataSource,
-    @required this.networkInfo,
+    required this.peopleRemoteDataSource,
+    required this.peopleLocalDataSource,
+    required this.networkInfo,
   });
 
   @override
-  Future<Either<Failure, List<Person>>> getPeople(int pageNumber) async {
-    if (await networkInfo.isConnected) {
+  Future<Either<Failure, List<Person>>> getPeople(int? pageNumber) async {
+    if (await networkInfo!.isConnected) {
       try {
         final remoteListOfPeople =
-            await peopleRemoteDataSource.getPeople(pageNumber);
+            await peopleRemoteDataSource!.getPeople(pageNumber);
         //peopleLocalDataSource.cacheListOfPeople(remoteListOfPeople);
         return Right(remoteListOfPeople);
       } on ServerException {

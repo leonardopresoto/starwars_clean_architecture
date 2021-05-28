@@ -3,21 +3,21 @@ import 'package:starwars_clean_architecture/features/species/domain/entities/spe
 
 class SpecieModel extends Specie {
   SpecieModel(
-      {@required String name,
-      @required String classification,
-      @required String designation,
-      @required String averageHeight,
-      @required String skinColors,
-      @required String eyeColors,
-      @required String hairColors,
-      @required String averageLifespan,
-      @required String homeworld,
-      @required String language,
-      @required List<String> films,
-      @required List<String> people,
-      @required String url,
-      @required String id,
-      @required String image})
+      {required String? name,
+      required String? classification,
+      required String? designation,
+      required String? averageHeight,
+      required String? skinColors,
+      required String? eyeColors,
+      required String? hairColors,
+      required String? averageLifespan,
+      required String homeworld,
+      required String? language,
+      required List<String> films,
+      required List<String> people,
+      required String? url,
+      required String id,
+      required String image})
       : super(
             name: name,
             classification: classification,

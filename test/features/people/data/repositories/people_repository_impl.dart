@@ -22,10 +22,10 @@ class MockPeopleLocalDataSource extends Mock implements PeopleLocalDataSource {}
 class MockNetworkInfo extends Mock implements NetworkInfo {}
 
 void main() {
-  PeopleRepositoryImpl repository;
-  MockPeopleRemoteDataSource mockPeopleRemoteDataSource;
-  MockPeopleLocalDataSource mockPeopleLocalDataSource;
-  MockNetworkInfo mockNetworkInfo;
+  late PeopleRepositoryImpl repository;
+  MockPeopleRemoteDataSource? mockPeopleRemoteDataSource;
+  MockPeopleLocalDataSource? mockPeopleLocalDataSource;
+  MockNetworkInfo? mockNetworkInfo;
 
   setUp(() {
     mockPeopleRemoteDataSource = MockPeopleRemoteDataSource();
@@ -41,7 +41,7 @@ void main() {
     group('device is online', () {
       // This setUp applies only to the 'device is online' group
       setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+        when(mockNetworkInfo!.isConnected).thenAnswer((_) async => true);
       });
 
       body();
@@ -52,7 +52,7 @@ void main() {
     group('device is offline', () {
       // This setUp applies only to the 'device is offline' group
       setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+        when(mockNetworkInfo!.isConnected).thenAnswer((_) async => false);
       });
 
       body();
@@ -73,9 +73,9 @@ void main() {
       test(
         "should test if the device is online",
         () async {
-          when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+          when(mockNetworkInfo!.isConnected).thenAnswer((_) async => true);
           repository.getPeople(pageNumber);
-          verify(mockNetworkInfo.isConnected);
+          verify(mockNetworkInfo!.isConnected);
         },
       );
       runTestsOnline(
@@ -84,12 +84,12 @@ void main() {
             'should return remote data when the call to remote data is successful',
             () async {
               // arrange
-              when(mockPeopleRemoteDataSource.getPeople(any))
+              when(mockPeopleRemoteDataSource!.getPeople(any))
                   .thenAnswer((_) async => listOfPeopleModel);
               // act
               final result = await repository.getPeople(pageNumber);
               // assert
-              verify(mockPeopleRemoteDataSource.getPeople(pageNumber));
+              verify(mockPeopleRemoteDataSource!.getPeople(pageNumber));
               expect(result, equals(Right(listOfPeople)));
             },
           );
@@ -98,13 +98,13 @@ void main() {
             'should cache the data locally when the call to remote data is successful',
             () async {
               // arrange
-              when(mockPeopleRemoteDataSource.getPeople(any))
+              when(mockPeopleRemoteDataSource!.getPeople(any))
                   .thenAnswer((_) async => listOfPeopleModel);
               // act
               await repository.getPeople(pageNumber);
               // assert
-              verify(mockPeopleRemoteDataSource.getPeople(pageNumber));
-              verify(mockPeopleLocalDataSource
+              verify(mockPeopleRemoteDataSource!.getPeople(pageNumber));
+              verify(mockPeopleLocalDataSource!
                   .cacheListOfPeople(listOfPeopleModel));
             },
           );
@@ -113,12 +113,12 @@ void main() {
             'should return SERVER FAILURE when the call to remote data is UNsuccessful',
             () async {
               // arrange
-              when(mockPeopleRemoteDataSource.getPeople(any))
+              when(mockPeopleRemoteDataSource!.getPeople(any))
                   .thenThrow(ServerException());
               // act
               final result = await repository.getPeople(pageNumber);
               // assert
-              verify(mockPeopleRemoteDataSource.getPeople(pageNumber));
+              verify(mockPeopleRemoteDataSource!.getPeople(pageNumber));
               verifyZeroInteractions(mockPeopleLocalDataSource);
               expect(result.isLeft(), true);
               expect(result.fold(id, id), isA<ServerFailure>());
@@ -132,13 +132,13 @@ void main() {
             'should return local data when the local data is available in the local database',
             () async {
               // arrange
-              when(mockPeopleLocalDataSource.getListOfPeople())
+              when(mockPeopleLocalDataSource!.getListOfPeople())
                   .thenAnswer((_) async => listOfPeopleModel);
               // act
               final result = await repository.getPeople(pageNumber);
               // assert
               verifyZeroInteractions(mockPeopleRemoteDataSource);
-              verify(mockPeopleLocalDataSource.getListOfPeople());
+              verify(mockPeopleLocalDataSource!.getListOfPeople());
               expect(result, equals(Right(listOfPeople)));
             },
           );
@@ -147,13 +147,13 @@ void main() {
             'should return CACHE FAILURE data when the local data is NOT available in the local database',
             () async {
               // arrange
-              when(mockPeopleLocalDataSource.getListOfPeople())
+              when(mockPeopleLocalDataSource!.getListOfPeople())
                   .thenThrow(CacheException());
               // act
               final result = await repository.getPeople(pageNumber);
               // assert
               verifyZeroInteractions(mockPeopleRemoteDataSource);
-              verify(mockPeopleLocalDataSource.getListOfPeople());
+              verify(mockPeopleLocalDataSource!.getListOfPeople());
               expect(result.isLeft(), true);
               expect(result.fold(id, id), isA<CacheFailure>());
             },

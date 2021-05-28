@@ -9,22 +9,22 @@ import 'package:starwars_clean_architecture/features/starships/domain/entities/s
 import 'package:starwars_clean_architecture/features/starships/domain/repositories/starships_repository.dart';
 
 class StarshipsRepositoryImpl implements StarshipsRepository {
-  final StarshipsRemoteDataSource starshipsRemoteDataSource;
-  final StarshipsLocalDataSource starshipsLocalDataSource;
-  final NetworkInfo networkInfo;
+  final StarshipsRemoteDataSource? starshipsRemoteDataSource;
+  final StarshipsLocalDataSource? starshipsLocalDataSource;
+  final NetworkInfo? networkInfo;
 
   StarshipsRepositoryImpl({
-    @required this.starshipsRemoteDataSource,
-    @required this.starshipsLocalDataSource,
-    @required this.networkInfo,
+    required this.starshipsRemoteDataSource,
+    required this.starshipsLocalDataSource,
+    required this.networkInfo,
   });
 
   @override
   Future<Either<Failure, List<Starship>>> getStarships(int pageNumber) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo!.isConnected) {
       try {
         final remoteListOfStarships =
-            await starshipsRemoteDataSource.getStarships(pageNumber);
+            await starshipsRemoteDataSource!.getStarships(pageNumber);
         //starshipsLocalDataSource.cacheListOfStarships(remoteListOfStarships);
         return Right(remoteListOfStarships);
       } on ServerException {

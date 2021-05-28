@@ -15,7 +15,7 @@ class Loading extends StarshipsState {}
 class Loaded extends StarshipsState {
   final List<Starship> listOfStarships;
 
-  Loaded({@required this.listOfStarships});
+  Loaded({required this.listOfStarships});
 
   @override
   List<Object> get props => [listOfStarships];
@@ -24,7 +24,7 @@ class Loaded extends StarshipsState {
 class Error extends StarshipsState {
   final String message;
 
-  Error({@required this.message});
+  Error({required this.message});
 
   @override
   List<Object> get props => [message];

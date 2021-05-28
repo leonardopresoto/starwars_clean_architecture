@@ -5,7 +5,7 @@ import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 class Progress extends StatelessWidget {
 
   const Progress({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

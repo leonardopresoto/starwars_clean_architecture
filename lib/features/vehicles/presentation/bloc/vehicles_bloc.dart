@@ -18,7 +18,7 @@ class VehiclesBloc extends Bloc<VehiclesEvent, VehiclesState> {
   final GetVehicles getVehicles;
 
   VehiclesBloc({
-    @required GetVehicles vehicles,
+    required GetVehicles vehicles,
   })  : assert(vehicles != null),
         getVehicles = vehicles,
         super(Empty());

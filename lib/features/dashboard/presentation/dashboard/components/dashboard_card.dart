@@ -14,7 +14,7 @@ class DashboardCard extends StatelessWidget {
     this.firstColor,
     this.secondColor,
     this.image, {
-    @required this.onClick,
+    required this.onClick,
   });
 
   @override

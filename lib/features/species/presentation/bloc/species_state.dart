@@ -15,7 +15,7 @@ class Loading extends SpeciesState {}
 class Loaded extends SpeciesState {
   final List<Specie> listOfSpecies;
 
-  Loaded({@required this.listOfSpecies});
+  Loaded({required this.listOfSpecies});
 
   @override
   List<Object> get props => [listOfSpecies];
@@ -24,7 +24,7 @@ class Loaded extends SpeciesState {
 class Error extends SpeciesState {
   final String message;
 
-  Error({@required this.message});
+  Error({required this.message});
 
   @override
   List<Object> get props => [message];

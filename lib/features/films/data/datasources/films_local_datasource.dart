@@ -60,7 +60,8 @@ class FilmsLocalDataSourceImpl implements FilmsLocalDataSource {
   Future<List<FilmModel>> selectFilms() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
-
+    final List<FilmModel> listOfFilmModels = [];
+    return listOfFilmModels;
     // return List.generate(maps.length, (i) {
     //   return FilmModel(
     //     id: maps[i][_id],
@@ -87,12 +88,12 @@ class FilmsLocalDataSourceImpl implements FilmsLocalDataSource {
     // Get a reference to the database.
     final Database db = await getDatabase();
     // ignore: unused_local_variable
-    for (var film in listOfFilmModel) {
-      return await db.insert(
-        _tableName,
-        Map(), //film.toMap();
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
-    }
+    // for (var film in listOfFilmModel) {
+    //   return await db.insert(
+    //     _tableName,
+    //     Map(), //film.toMap();
+    //     conflictAlgorithm: ConflictAlgorithm.replace,
+    //   );
+    // }
   }
 }

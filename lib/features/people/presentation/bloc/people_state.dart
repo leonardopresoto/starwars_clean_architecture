@@ -15,7 +15,7 @@ class Loading extends PeopleState {}
 class Loaded extends PeopleState {
   final List<Person> listOfPeople;
 
-  Loaded({@required this.listOfPeople});
+  Loaded({required this.listOfPeople});
 
   @override
   List<Object> get props => [listOfPeople];
@@ -24,7 +24,7 @@ class Loaded extends PeopleState {
 class Error extends PeopleState {
   final String message;
 
-  Error({@required this.message});
+  Error({required this.message});
 
   @override
   List<Object> get props => [message];

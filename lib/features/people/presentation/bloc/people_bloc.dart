@@ -18,7 +18,7 @@ class PeopleBloc extends Bloc<PeopleEvent, PeopleState> {
   final GetPeople getPeople;
 
   PeopleBloc({
-    @required GetPeople people,
+    required GetPeople people,
   })  : assert(people != null),
         getPeople = people,
         super(Empty());

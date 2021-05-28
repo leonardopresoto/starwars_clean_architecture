@@ -15,7 +15,7 @@ class Loading extends FilmsState {}
 class Loaded extends FilmsState {
   final List<Film> listOfFilms;
 
-  Loaded({@required this.listOfFilms});
+  Loaded({required this.listOfFilms});
 
   @override
   List<Object> get props => [listOfFilms];
@@ -24,7 +24,7 @@ class Loaded extends FilmsState {
 class Error extends FilmsState {
   final String message;
 
-  Error({@required this.message});
+  Error({required this.message});
 
   @override
   List<Object> get props => [message];

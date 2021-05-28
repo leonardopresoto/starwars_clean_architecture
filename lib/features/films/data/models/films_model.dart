@@ -3,20 +3,20 @@ import 'package:starwars_clean_architecture/features/films/domain/entities/film.
 
 class FilmModel extends Film {
   FilmModel(
-      {@required String title,
-      @required String episodeId,
-      @required String openingCrawl,
-      @required String director,
-      @required String producer,
-      @required String releaseDate,
-      @required List<String> characters,
-        @required List<String> planets,
-      @required List<String> species,
-      @required List<String> vehicles,
-      @required List<String> starships,
-      @required String url,
-      @required String id,
-      @required String image})
+      {required String? title,
+      required String episodeId,
+      required String? openingCrawl,
+      required String? director,
+      required String? producer,
+      required String? releaseDate,
+      required List<String> characters,
+        required List<String> planets,
+      required List<String> species,
+      required List<String> vehicles,
+      required List<String> starships,
+      required String? url,
+      required String id,
+      required String image})
       : super(
             title: title,
             episodeId: episodeId,

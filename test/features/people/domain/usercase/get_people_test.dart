@@ -9,9 +9,9 @@ import 'package:starwars_clean_architecture/features/people/domain/usecases/get_
 class MockPeopleRepository extends Mock implements PeopleRepository{}
 
 void main(){
-  MockPeopleRepository mockPeopleRepository;
-  GetPeople useCase;
-  Params params;
+  MockPeopleRepository? mockPeopleRepository;
+  late GetPeople useCase;
+  late Params params;
 
   setUp(() {
     mockPeopleRepository = MockPeopleRepository();
@@ -37,25 +37,25 @@ void main(){
 
   group("Repository .../features/people/domain/usecases/", (){
     test("it should get a list of people from the repository", () async {
-      when(mockPeopleRepository.getPeople(any)).thenAnswer((_) async => Right(<Person>[]),
+      when(mockPeopleRepository!.getPeople(any)).thenAnswer((_) async => Right(<Person>[]),
       );
-      final result = await useCase(params);
+      final Either<Failure, List<Person>?> result = await useCase(params);
       // UseCase should simply return whatever was returned from the Repository
       expect(result | null, isA<List<Person>>());
       // Verify that the method has been called on the Repository
-      verify(mockPeopleRepository.getPeople(1));
+      verify(mockPeopleRepository!.getPeople(1));
       // Only the above method should be called and nothing more.
       verifyNoMoreInteractions(mockPeopleRepository);
     });
 
     test("it should get a Failure when the parameter number is null",() async {
-      when(mockPeopleRepository.getPeople(any)).thenAnswer((_) async => Right(<Person>[]),
+      when(mockPeopleRepository!.getPeople(any)).thenAnswer((_) async => Right(<Person>[]),
       );
       final result = await useCase(Params(number: null));
       // UseCase should simply return whatever was returned from the Repository
       expect(result.isLeft(), true);
       expect(result.fold(id, id), isA<Failure>());
-      verifyNever(mockPeopleRepository.getPeople(null));
+      verifyNever(mockPeopleRepository!.getPeople(null));
       verifyNoMoreInteractions(mockPeopleRepository);
     });
   });

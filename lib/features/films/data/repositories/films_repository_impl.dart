@@ -9,22 +9,22 @@ import 'package:starwars_clean_architecture/features/films/domain/entities/film.
 import 'package:starwars_clean_architecture/features/films/domain/repositories/films_repository.dart';
 
 class FilmsRepositoryImpl implements FilmsRepository {
-  final FilmsRemoteDataSource filmsRemoteDataSource;
-  final FilmsLocalDataSource filmsLocalDataSource;
-  final NetworkInfo networkInfo;
+  final FilmsRemoteDataSource? filmsRemoteDataSource;
+  final FilmsLocalDataSource? filmsLocalDataSource;
+  final NetworkInfo? networkInfo;
 
   FilmsRepositoryImpl({
-    @required this.filmsRemoteDataSource,
-    @required this.filmsLocalDataSource,
-    @required this.networkInfo,
+    required this.filmsRemoteDataSource,
+    required this.filmsLocalDataSource,
+    required this.networkInfo,
   });
 
   @override
   Future<Either<Failure, List<Film>>> getFilms(int pageNumber) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo!.isConnected) {
       try {
         final remoteListOfFilms =
-            await filmsRemoteDataSource.getFilms(pageNumber);
+            await filmsRemoteDataSource!.getFilms(pageNumber);
         //filmsLocalDataSource.cacheListOfFilms(remoteListOfFilms);
         return Right(remoteListOfFilms);
       } on ServerException {

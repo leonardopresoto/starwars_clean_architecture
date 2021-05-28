@@ -60,6 +60,8 @@ class PlanetsLocalDataSourceImpl implements PlanetsLocalDataSource {
   Future<List<PlanetModel>> selectPlanets() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
+    final List<PlanetModel> listOfPlanetModel = [];
+    return listOfPlanetModel;
 
     // return List.generate(maps.length, (i) {
     //   return PlanetModel(
@@ -87,12 +89,12 @@ class PlanetsLocalDataSourceImpl implements PlanetsLocalDataSource {
     // Get a reference to the database.
     final Database db = await getDatabase();
     // ignore: unused_local_variable
-    for (var planet in listOfPlanetModel) {
-      return await db.insert(
-        _tableName,
-        Map(), //planet.toMap();
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
-    }
+    // for (var planet in listOfPlanetModel) {
+    //   return await db.insert(
+    //     _tableName,
+    //     Map(), //planet.toMap();
+    //     conflictAlgorithm: ConflictAlgorithm.replace,
+    //   );
+    // }
   }
 }

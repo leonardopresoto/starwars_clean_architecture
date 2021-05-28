@@ -13,8 +13,8 @@ import '../../../../fixtures/fixture_reader.dart';
 class MockHttpClient extends Mock implements http.Client {}
 
 void main() {
-  PeopleRemoteDataSourceImpl dataSource;
-  MockHttpClient mockHttpClient;
+  late PeopleRemoteDataSourceImpl dataSource;
+  MockHttpClient? mockHttpClient;
 
   setUp(() {
     mockHttpClient = MockHttpClient();
@@ -22,12 +22,12 @@ void main() {
   });
 
   void setUpMockHttpClientSuccess200() {
-    when(mockHttpClient.get(any))
+    when(mockHttpClient!.get(any!))
         .thenAnswer((_) async => http.Response(fixture('people.json'), 200));
   }
 
   void setUpMockHttpClientException404() {
-    when(mockHttpClient.get(any))
+    when(mockHttpClient!.get(any!))
         .thenAnswer((_) async => http.Response('Something went wrong', 404));
   }
 
@@ -48,7 +48,7 @@ void main() {
         // act
        dataSource.getPeople(numberPage);
         // assert
-        verify(mockHttpClient.get(
+        verify(mockHttpClient!.get(
           Uri.parse("http://swapi.dev/api/people/?page=$numberPage"),
         ));
       },
@@ -58,12 +58,12 @@ void main() {
       'should preform a GET request on a URL when numberPage = null, the result is the same as result =1',
           () async {
         //arrange
-        final numberPagenull = null;
+        final dynamic numberPagenull = null;
         setUpMockHttpClientSuccess200();
         // act
         dataSource.getPeople(numberPagenull);
         // assert
-        verify(mockHttpClient.get(
+        verify(mockHttpClient!.get(
           Uri.parse("http://swapi.dev/api/people/?page=$numberPagenull"),
         ));
       },

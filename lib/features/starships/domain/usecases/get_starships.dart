@@ -6,7 +6,7 @@ import 'package:starwars_clean_architecture/features/starships/domain/entities/s
 import 'package:starwars_clean_architecture/features/starships/domain/repositories/starships_repository.dart';
 
 class GetStarships implements UseCase<List<Starship>, Params> {
-  final StarshipsRepository repository;
+  final StarshipsRepository? repository;
 
   GetStarships(this.repository);
 
@@ -15,14 +15,14 @@ class GetStarships implements UseCase<List<Starship>, Params> {
     if (params.number == null) {
       return Left(InvalidTextError());
     }
-    return await repository.getStarships(params.number);
+    return await repository!.getStarships(params.number);
   }
 }
 
 class Params {
   final int number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
   List<Object> get props => [number];
 }

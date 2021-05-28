@@ -14,30 +14,30 @@ abstract class PlanetsRemoteDataSource {
 }
 
 class PlanetsRemoteDataSourceImpl implements PlanetsRemoteDataSource {
-  final http.Client client;
+  final http.Client? client;
 
-  PlanetsRemoteDataSourceImpl({@required this.client});
+  PlanetsRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<PlanetModel>> getPlanets(int pageNumber) async {
     List<PlanetModel> result = [];
-    Map<String, dynamic> jsonMap;
+    Map<String, dynamic>? jsonMap;
     Response response;
 
-    response = await client
+    response = await client!
         .get(Uri.parse("http://swapi.dev/api/planets/?page=$pageNumber"));
 
     if (response.statusCode == 200) {
       jsonMap = json.decode(response.body);
-      for (var planet in jsonMap['results']) {
+      for (var planet in jsonMap!['results']) {
         result.add(PlanetModel.fromJson(planet));
       }
       do {
-        response = await client
-            .get(Uri.parse(jsonMap['next']));
+        response = await client!
+            .get(Uri.parse(jsonMap!['next']));
         if (response.statusCode == 200) {
           jsonMap = json.decode(response.body);
-          for (var planet in jsonMap['results']) {
+          for (var planet in jsonMap!['results']) {
             result.add(PlanetModel.fromJson(planet));
           }
         } else {

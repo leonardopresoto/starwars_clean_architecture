@@ -1,22 +1,22 @@
 class Starship {
-  String name;
-  String model;
-  String manufacturer;
-  String costInCredits;
-  String length;
-  String maxAtmospheringSpeed;
-  String crew;
-  String passengers;
-  String cargoCapacity;
-  String consumables;
-  String hyperdriveRating;
-  String mglt;
-  String starshipClass;
-  List<String> pilots;
-  List<String> films;
-  String id;
-  String image;
-  String url;
+  String? name;
+  String? model;
+  String? manufacturer;
+  String? costInCredits;
+  String? length;
+  String? maxAtmospheringSpeed;
+  String? crew;
+  String? passengers;
+  String? cargoCapacity;
+  String? consumables;
+  String? hyperdriveRating;
+  String? mglt;
+  String? starshipClass;
+  List<String>? pilots;
+  List<String>? films;
+  String? id;
+  String? image;
+  String? url;
 
   Starship({
     this.name,

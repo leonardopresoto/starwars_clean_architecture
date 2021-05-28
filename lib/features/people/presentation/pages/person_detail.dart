@@ -7,7 +7,7 @@ import 'package:starwars_clean_architecture/features/people/domain/entities/pers
 class PersonDetail extends StatelessWidget {
   final Person person;
 
-  PersonDetail({Key key, @required this.person}) : super(key: key);
+  PersonDetail({Key? key, required this.person}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class PersonDetail extends StatelessWidget {
           ),
           centerTitle: true,
           title: Text(
-            person.name,
+            person.name!,
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
@@ -51,7 +51,7 @@ class PersonDetail extends StatelessWidget {
                           Expanded(
                             flex: 45,
                             child: Image.asset(
-                              person.image,
+                              person.image!,
                             ),
                           ),
                           Expanded(
@@ -72,33 +72,33 @@ class PersonDetail extends StatelessWidget {
                                         padding: const EdgeInsets.only(
                                             left: 8, right: 8, bottom: 5),
                                         child:
-                                            _centerRow("Name : ", person.name),
+                                            _centerRow("Name : ", person.name!),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
                                             left: 8, right: 8, bottom: 20),
                                         child: _centerRow(
-                                            "Home World : ", person.homeworld),
+                                            "Home World : ", person.homeworld!),
                                       ),
                                       _threeDataRow(
                                           "Birth Year",
-                                          person.birthYear,
+                                          person.birthYear!,
                                           "Height",
-                                          person.height,
+                                          person.height!,
                                           "Mass",
-                                          person.mass),
+                                          person.mass!),
                                       _threeDataRow(
                                           "Gender",
-                                          person.gender,
+                                          person.gender!,
                                           "Skin Color",
-                                          person.skinColor,
+                                          person.skinColor!,
                                           "Eye Color",
-                                          person.eyeColor),
-                                      _listRow("Films : ", person.films),
-                                      _listRow("Species : ", person.species),
+                                          person.eyeColor!),
+                                      _listRow("Films : ", person.films!),
+                                      _listRow("Species : ", person.species!),
                                       _listRow(
-                                          "Starships : ", person.starships),
-                                      _listRow("Vehicles : ", person.vehicles),
+                                          "Starships : ", person.starships!),
+                                      _listRow("Vehicles : ", person.vehicles!),
                                     ],
                                   ),
                                 ),

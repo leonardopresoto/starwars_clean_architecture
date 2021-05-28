@@ -15,13 +15,13 @@ class PlanetRow extends StatelessWidget {
     final planetThumbnail = Container(
       alignment: FractionalOffset.centerLeft,
       child: Image(
-        image: AssetImage(planet.image),
+        image: AssetImage(planet.image!),
         height: 80.0,
         width: 80.0,
       ),
     );
 
-    Widget _planetValue({String value, String description}) {
+    Widget _planetValue({String? value, required String description}) {
       return Row(children: <Widget>[
         Text(description, style: TextStyle(color: carContent_TextColor),),
         Container(width: 4.0),
@@ -42,11 +42,11 @@ class PlanetRow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(planet.name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: carContent_TextColor),),
+          Text(planet.name!, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: carContent_TextColor),),
           Row(children: <Widget>[
             Text("Population : ", style: TextStyle(color: carContent_TextColor),),
             SizedBox(height: 20),
-            Text(planet.population, style: TextStyle(fontWeight: FontWeight.bold,color: carContent_TextColor) ),
+            Text(planet.population!, style: TextStyle(fontWeight: FontWeight.bold,color: carContent_TextColor) ),
           ],),
           Container(
             margin: EdgeInsets.symmetric(vertical: 8.0),

@@ -3,22 +3,22 @@ import 'package:starwars_clean_architecture/features/people/domain/entities/pers
 
 class PersonModel extends Person {
   PersonModel(
-      {@required String name,
-      @required String height,
-      @required String mass,
-      @required String hairColor,
-      @required String skinColor,
-      @required String eyeColor,
-      @required String birthYear,
-      @required String gender,
-      @required String homeworld,
-      @required List<String> films,
-      @required List<String> species,
-      @required List<String> vehicles,
-      @required List<String> starships,
-      @required String url,
-      @required String id,
-      @required String image})
+      {required String? name,
+      required String? height,
+      required String? mass,
+      required String? hairColor,
+      required String? skinColor,
+      required String? eyeColor,
+      required String? birthYear,
+      required String? gender,
+      required String? homeworld,
+      required List<String> films,
+      required List<String> species,
+      required List<String> vehicles,
+      required List<String> starships,
+      required String? url,
+      required String? id,
+      required String? image})
       : super(
             name: name,
             height: height,

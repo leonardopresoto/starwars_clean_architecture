@@ -6,7 +6,7 @@ import 'package:starwars_clean_architecture/features/vehicles/domain/entities/ve
 import 'package:starwars_clean_architecture/features/vehicles/domain/repositories/vehicles_repository.dart';
 
 class GetVehicles implements UseCase<List<Vehicle>, Params> {
-  final VehiclesRepository repository;
+  final VehiclesRepository? repository;
 
   GetVehicles(this.repository);
 
@@ -15,14 +15,14 @@ class GetVehicles implements UseCase<List<Vehicle>, Params> {
     if (params.number == null) {
       return Left(InvalidTextError());
     }
-    return await repository.getVehicles(params.number);
+    return await repository!.getVehicles(params.number);
   }
 }
 
 class Params {
   final int number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
   List<Object> get props => [number];
 }

@@ -29,7 +29,7 @@ class SpecieCard extends StatelessWidget {
                 header: Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      specie.name,
+                      specie.name!,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -49,8 +49,8 @@ class SpecieCard extends StatelessWidget {
                     _buildDataRow("Homeworld : ", specie.homeworld),
                     _buildDataRow(
                         "Language : ", specie.language),
-                    _buildDataRow("Characters : ", Utils().prepareLists(specie.people)),
-                    _buildDataRow("Films : ", Utils().prepareLists(specie.films)),
+                    _buildDataRow("Characters : ", Utils().prepareLists(specie.people!)),
+                    _buildDataRow("Films : ", Utils().prepareLists(specie.films!)),
                   ],
                 ),
                 builder: (_, collapsed, expanded) {
@@ -62,7 +62,7 @@ class SpecieCard extends StatelessWidget {
                       theme: const ExpandableThemeData(crossFadePoint: 0),
                     ),
                   );
-                }, collapsed: null,
+                }, collapsed: Text(''),
               ),
             ),
           ],
@@ -71,7 +71,7 @@ class SpecieCard extends StatelessWidget {
     ));
   }
 
-  Padding _buildDataRow(String description, String data) {
+  Padding _buildDataRow(String description, String? data) {
     return Padding(
       padding: EdgeInsets.only(bottom: 5, right: 5),
       child: Row(

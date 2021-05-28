@@ -9,22 +9,22 @@ import 'package:starwars_clean_architecture/features/planets/domain/entities/pla
 import 'package:starwars_clean_architecture/features/planets/domain/repositories/planets_repository.dart';
 
 class PlanetsRepositoryImpl implements PlanetsRepository {
-  final PlanetsRemoteDataSource planetsRemoteDataSource;
-  final PlanetsLocalDataSource planetsLocalDataSource;
-  final NetworkInfo networkInfo;
+  final PlanetsRemoteDataSource? planetsRemoteDataSource;
+  final PlanetsLocalDataSource? planetsLocalDataSource;
+  final NetworkInfo? networkInfo;
 
   PlanetsRepositoryImpl({
-    @required this.planetsRemoteDataSource,
-    @required this.planetsLocalDataSource,
-    @required this.networkInfo,
+    required this.planetsRemoteDataSource,
+    required this.planetsLocalDataSource,
+    required this.networkInfo,
   });
 
   @override
   Future<Either<Failure, List<Planet>>> getPlanets(int pageNumber) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo!.isConnected) {
       try {
         final remoteListOfPlanets =
-            await planetsRemoteDataSource.getPlanets(pageNumber);
+            await planetsRemoteDataSource!.getPlanets(pageNumber);
         //planetsLocalDataSource.cacheListOfPlanets(remoteListOfPlanets);
         return Right(remoteListOfPlanets);
       } on ServerException {

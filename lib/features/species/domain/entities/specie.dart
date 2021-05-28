@@ -1,19 +1,19 @@
 class Specie {
-  String name;
-  String classification;
-  String designation;
-  String averageHeight;
-  String skinColors;
-  String hairColors;
-  String eyeColors;
-  String averageLifespan;
-  String homeworld;
-  String language;
-  List<String> people;
-  List<String> films;
-  String id;
-  String image;
-  String url;
+  String? name;
+  String? classification;
+  String? designation;
+  String? averageHeight;
+  String? skinColors;
+  String? hairColors;
+  String? eyeColors;
+  String? averageLifespan;
+  String? homeworld;
+  String? language;
+  List<String>? people;
+  List<String>? films;
+  String? id;
+  String? image;
+  String? url;
 
   Specie({
     this.name,

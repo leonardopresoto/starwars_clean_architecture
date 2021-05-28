@@ -7,7 +7,7 @@ import 'package:starwars_clean_architecture/features/planets/domain/repositories
 
 
 class GetPlanets implements UseCase<List<Planet>, Params> {
-  final PlanetsRepository repository;
+  final PlanetsRepository? repository;
 
   GetPlanets(this.repository);
 
@@ -16,14 +16,14 @@ class GetPlanets implements UseCase<List<Planet>, Params> {
     if (params.number == null) {
       return Left(InvalidTextError());
     }
-    return await repository.getPlanets(params.number);
+    return await repository!.getPlanets(params.number);
   }
 }
 
 class Params {
   final int number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
   List<Object> get props => [number];
 }

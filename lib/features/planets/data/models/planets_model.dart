@@ -4,20 +4,20 @@ import 'package:starwars_clean_architecture/features/planets/domain/entities/pla
 
 class PlanetModel extends Planet {
   PlanetModel(
-      {@required String name,
-      @required String rotationPeriod,
-      @required String orbitalPeriod,
-      @required String diameter,
-      @required String climate,
-      @required String gravity,
-      @required String terrain,
-      @required String surfaceWater,
-      @required String population,
-      @required List<String> films,
-      @required List<String> residents,
-      @required String url,
-      @required String id,
-      @required String image})
+      {required String? name,
+      required String? rotationPeriod,
+      required String? orbitalPeriod,
+      required String? diameter,
+      required String? climate,
+      required String? gravity,
+      required String? terrain,
+      required String? surfaceWater,
+      required String? population,
+      required List<String> films,
+      required List<String> residents,
+      required String? url,
+      required String id,
+      required String image})
       : super(
             name: name,
             rotationPeriod: rotationPeriod,

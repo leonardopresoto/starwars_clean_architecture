@@ -11,8 +11,8 @@ const String SCREEN_TITLE = "List of Vehicles";
 
 class LoadedList extends StatelessWidget {
   const LoadedList({
-    Key key,
-    @required this.vehicleList,
+    Key? key,
+    required this.vehicleList,
   }) : super(key: key);
 
   final List<Vehicle> vehicleList;
@@ -25,8 +25,8 @@ class LoadedList extends StatelessWidget {
 
 class VehicleListPage extends StatefulWidget {
   const VehicleListPage({
-    Key key,
-    @required this.vehicleList,
+    Key? key,
+    required this.vehicleList,
   }) : super(key: key);
 
   final List<Vehicle> vehicleList;

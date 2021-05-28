@@ -58,10 +58,10 @@ class MyDrawer extends StatelessWidget {
 
 class DrawerListTile extends StatelessWidget {
   const DrawerListTile({
-    Key key,
-    @required this.title,
-    @required this.redirectTo,
-    @required this.icon,
+    Key? key,
+    required this.title,
+    required this.redirectTo,
+    required this.icon,
   }) : super(key: key);
 
   final String title;

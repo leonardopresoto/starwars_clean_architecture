@@ -18,7 +18,7 @@ class StarshipsBloc extends Bloc<StarshipsEvent, StarshipsState> {
   final GetStarships getStarships;
 
   StarshipsBloc({
-    @required GetStarships starships,
+    required GetStarships starships,
   })  : assert(starships != null),
         getStarships = starships,
         super(Empty());

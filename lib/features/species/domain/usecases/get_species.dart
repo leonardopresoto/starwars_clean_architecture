@@ -6,7 +6,7 @@ import 'package:starwars_clean_architecture/features/species/domain/entities/spe
 import 'package:starwars_clean_architecture/features/species/domain/repositories/species_repository.dart';
 
 class GetSpecies implements UseCase<List<Specie>, Params> {
-  final SpeciesRepository repository;
+  final SpeciesRepository? repository;
 
   GetSpecies(this.repository);
 
@@ -15,14 +15,14 @@ class GetSpecies implements UseCase<List<Specie>, Params> {
     if (params.number == null) {
       return Left(InvalidTextError());
     }
-    return await repository.getSpecies(params.number);
+    return await repository!.getSpecies(params.number);
   }
 }
 
 class Params {
   final int number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
   List<Object> get props => [number];
 }

@@ -15,7 +15,7 @@ class Loading extends VehiclesState {}
 class Loaded extends VehiclesState {
   final List<Vehicle> listOfVehicles;
 
-  Loaded({@required this.listOfVehicles});
+  Loaded({required this.listOfVehicles});
 
   @override
   List<Object> get props => [listOfVehicles];
@@ -24,7 +24,7 @@ class Loaded extends VehiclesState {
 class Error extends VehiclesState {
   final String message;
 
-  Error({@required this.message});
+  Error({required this.message});
 
   @override
   List<Object> get props => [message];

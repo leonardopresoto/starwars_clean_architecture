@@ -9,22 +9,22 @@ import 'package:starwars_clean_architecture/features/vehicles/domain/entities/ve
 import 'package:starwars_clean_architecture/features/vehicles/domain/repositories/vehicles_repository.dart';
 
 class VehiclesRepositoryImpl implements VehiclesRepository {
-  final VehiclesRemoteDataSource vehiclesRemoteDataSource;
-  final VehiclesLocalDataSource vehiclesLocalDataSource;
-  final NetworkInfo networkInfo;
+  final VehiclesRemoteDataSource? vehiclesRemoteDataSource;
+  final VehiclesLocalDataSource? vehiclesLocalDataSource;
+  final NetworkInfo? networkInfo;
 
   VehiclesRepositoryImpl({
-    @required this.vehiclesRemoteDataSource,
-    @required this.vehiclesLocalDataSource,
-    @required this.networkInfo,
+    required this.vehiclesRemoteDataSource,
+    required this.vehiclesLocalDataSource,
+    required this.networkInfo,
   });
 
   @override
   Future<Either<Failure, List<Vehicle>>> getVehicles(int pageNumber) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo!.isConnected) {
       try {
         final remoteListOfVehicles =
-            await vehiclesRemoteDataSource.getVehicles(pageNumber);
+            await vehiclesRemoteDataSource!.getVehicles(pageNumber);
         //vehiclesLocalDataSource.cacheListOfVehicles(remoteListOfVehicles);
         return Right(remoteListOfVehicles);
       } on ServerException {

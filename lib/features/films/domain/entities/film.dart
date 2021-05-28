@@ -1,19 +1,19 @@
 class Film {
 
-  String title;
-  String episodeId;
-  String openingCrawl;
-  String director;
-  String producer;
-  String releaseDate;
-  List<String> characters;
-  List<String> planets;
-  List<String> starships;
-  List<String> vehicles;
-  List<String> species;
-  String image;
-  String id;
-  String url;
+  String? title;
+  String? episodeId;
+  String? openingCrawl;
+  String? director;
+  String? producer;
+  String? releaseDate;
+  List<String>? characters;
+  List<String>? planets;
+  List<String>? starships;
+  List<String>? vehicles;
+  List<String>? species;
+  String? image;
+  String? id;
+  String? url;
 
   Film({
     this.title,

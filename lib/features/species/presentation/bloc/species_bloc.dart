@@ -18,7 +18,7 @@ class SpeciesBloc extends Bloc<SpeciesEvent, SpeciesState> {
   final GetSpecies getSpecies;
 
   SpeciesBloc({
-    @required GetSpecies species,
+    required GetSpecies species,
   })  : assert(species != null),
         getSpecies = species,
         super(Empty());

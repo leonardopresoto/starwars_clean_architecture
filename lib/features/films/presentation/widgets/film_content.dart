@@ -5,8 +5,8 @@ import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 
 class FilmContent extends StatelessWidget {
   const FilmContent({
-    Key key,
-    @required this.data,
+    Key? key,
+    required this.data,
   }) : super(key: key);
 
   final List<dynamic> data;

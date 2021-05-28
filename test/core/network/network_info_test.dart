@@ -1,17 +1,17 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:mockito/mockito.dart';
 import 'package:starwars_clean_architecture/core/network/network_info.dart';
 
-class MockDataConnectionChecker extends Mock implements DataConnectionChecker {}
+class MockInternetConnectionChecker extends Mock implements InternetConnectionChecker {}
 
 void main() {
-  NetworkInfoImpl networkInfo;
-  MockDataConnectionChecker mockDataConnectionChecker;
+  late NetworkInfoImpl networkInfo;
+  MockInternetConnectionChecker? mockInternetConnectionChecker;
 
   setUp(() {
-    mockDataConnectionChecker = MockDataConnectionChecker();
-    networkInfo = NetworkInfoImpl(mockDataConnectionChecker);
+    mockInternetConnectionChecker = MockInternetConnectionChecker();
+    networkInfo = NetworkInfoImpl(mockInternetConnectionChecker);
   });
 
   group('isConnected', () {
@@ -21,12 +21,12 @@ void main() {
         // arrange
         final tHasConnectionFuture = Future.value(true);
 
-        when(mockDataConnectionChecker.hasConnection)
+        when(mockInternetConnectionChecker!.hasConnection)
             .thenAnswer((_) => tHasConnectionFuture);
         // act
         final result = networkInfo.isConnected;
         // assert
-        verify(mockDataConnectionChecker.hasConnection);
+        verify(mockInternetConnectionChecker!.hasConnection);
         expect(result, tHasConnectionFuture);
       },
     );

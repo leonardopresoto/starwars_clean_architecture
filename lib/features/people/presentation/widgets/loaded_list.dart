@@ -6,8 +6,8 @@ import 'package:starwars_clean_architecture/features/people/presentation/widgets
 
 class LoadedList extends StatelessWidget {
   const LoadedList({
-    Key key,
-    @required this.personList,
+    Key? key,
+    required this.personList,
   }) : super(key: key);
 
   final List<Person> personList;

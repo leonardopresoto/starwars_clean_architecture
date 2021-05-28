@@ -60,7 +60,8 @@ class VehiclesLocalDataSourceImpl implements VehiclesLocalDataSource {
   Future<List<VehicleModel>> selectVehicles() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
-
+    final List<VehicleModel> listOfVehicleModel = [];
+    return listOfVehicleModel;
     // return List.generate(maps.length, (i) {
     //   return VehicleModel(
     //     id: maps[i][_id],
@@ -87,12 +88,12 @@ class VehiclesLocalDataSourceImpl implements VehiclesLocalDataSource {
     // Get a reference to the database.
     final Database db = await getDatabase();
     // ignore: unused_local_variable
-    for (var vehicle in listOfVehicleModel) {
-      return await db.insert(
-        _tableName,
-        Map(), //vehicle.toMap();
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
-    }
+    // for (var vehicle in listOfVehicleModel) {
+    //   return await db.insert(
+    //     _tableName,
+    //     Map(), //vehicle.toMap();
+    //     conflictAlgorithm: ConflictAlgorithm.replace,
+    //   );
+    // }
   }
 }

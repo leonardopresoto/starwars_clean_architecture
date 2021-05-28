@@ -10,8 +10,8 @@ const String SCREEN_TITLE = "List of Planets";
 
 class LoadedList extends StatelessWidget {
   const LoadedList({
-    Key key,
-    @required this.planetList,
+    Key? key,
+    required this.planetList,
   }) : super(key: key);
 
   final List<Planet> planetList;
@@ -23,8 +23,8 @@ class LoadedList extends StatelessWidget {
 }
 class PlanetListPage extends StatefulWidget {
   const PlanetListPage({
-    Key key,
-    @required this.planetList,
+    Key? key,
+    required this.planetList,
   }) : super(key: key);
 
   final List<Planet> planetList;
