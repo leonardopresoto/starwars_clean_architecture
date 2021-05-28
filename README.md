@@ -24,6 +24,7 @@ To develop the layout I based on some layouts I found browsing the internet:
 - Films - [Slider Layout](https://pub.dev/packages/carousel_slider)
 - Planets - [Page Layout](https://sergiandreplace.com/planets-flutter-creating-a-list-of-planets/) *- this one I just change some features, the code is quite the same*
 - Species, Starships, Vehicles - [Expandable](https://pub.dev/packages/expandable)
+- I downloaded each image i'm using in this project. it was sooo boring...
 
 I'm not proud of this layout, mainly because it was not the goal of this project. However, I am open to suggestions. If someone wants to suggest a better layout, I may update the project.
 
@@ -66,7 +67,7 @@ I'm consuming the APIs from [SWAPI](https://swapi.dev/).
 <h2>To Do: </h2>
 
 ### Some Improvements I'm planning to do
-- [ ] Create Tests to Films, Planets, Starships, Species, Vehicles and Core components*
+- [ ] Create Tests for Films, Planets, Starships, Species, Vehicles and Core components*
 - [ ] Finish Planets screen
 - [X] Switch Theme structure (Shared Preferences)
 - [ ] Switch between Light/Dark Theme - (Probably I will include it on Drawer, AppBar or Both, I already started it)
@@ -77,11 +78,11 @@ I'm consuming the APIs from [SWAPI](https://swapi.dev/).
 - [ ] Layout Improvements on Lists (Like list of movies on Character Detail Page. Replace id by tile)
 - [ ] Optimize the similar code between different features
 - [ ] Check if the Clean Architecture concepts are still being properly used
+- [ ] \(Optional) Include images (no background preferably) for Vehicles, Species and Planets
 - [ ] \(Optional) Layout Update (more professional layout)
 
 (*)I know it's wrong to write tests later, but I was learning about Clean Arch not TDD. However, when 
 finish developing the People feature, I did the others by using CTRL+C/CTRL+V (... And I was too lazy 
 to do the tests).
-
 
 Any suggestion, please let me know!
