@@ -79,8 +79,9 @@ I'm consuming the APIs from [SWAPI](https://swapi.dev/).
 - [ ] Check if the Clean Architecture concepts are still being properly used
 - [ ] \(Optional) Layout Update (more professional layout)
 
-(*)I know it wrong do tests after, but I was learning about Clean Arch not TDD. After develop People 
-feature, i did the other by using CTRL+C/CTRLV (... And I was too lazy to do the tests). 
+(*)I know it's wrong to write tests later, but I was learning about Clean Arch not TDD. However, when 
+finish developing the People feature, I did the others by using CTRL+C/CTRL+V (... And I was too lazy 
+to do the tests).
 
 
 Any suggestion, please let me know!
