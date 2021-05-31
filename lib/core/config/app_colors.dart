@@ -20,3 +20,5 @@ const Color PLANET_CARD_COLOR = Color(0xFF333366);
 
 const Color CONNECTION_ERROR = Color(0xffFF0000);
 const Color YELLOW_STARWARS = Color(0xfff6cc47);
+
+const Color planet_TextColor = Color(0xffffffff);

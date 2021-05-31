@@ -5,7 +5,6 @@ import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 import 'package:starwars_clean_architecture/features/planets/domain/entities/planet.dart';
 import 'package:starwars_clean_architecture/features/planets/presentation/widgets/planet_card.dart';
 
-
 const String SCREEN_TITLE = "List of Planets";
 
 class LoadedList extends StatelessWidget {
@@ -21,6 +20,7 @@ class LoadedList extends StatelessWidget {
     return PlanetListPage(planetList: planetList);
   }
 }
+
 class PlanetListPage extends StatefulWidget {
   const PlanetListPage({
     Key? key,
@@ -44,7 +44,7 @@ class PlanetListPageState extends State<PlanetListPage> {
   ExpandableTheme _buildExpandableTheme(List<Planet> planetList) {
     return ExpandableTheme(
       data: ExpandableThemeData(
-        iconColor: (Utils().isLightTheme())? Colors.black:YELLOW_STARWARS,
+        iconColor: (Utils().isLightTheme()) ? Colors.black : YELLOW_STARWARS,
         useInkWell: true,
       ),
       child: Container(
@@ -58,6 +58,4 @@ class PlanetListPageState extends State<PlanetListPage> {
       ),
     );
   }
-
 }
-
