@@ -5,9 +5,9 @@ import 'package:starwars_clean_architecture/core/utils/components/connection_err
 import 'package:starwars_clean_architecture/core/utils/components/progress.dart';
 import 'package:starwars_clean_architecture/core/utils/components/unknown_error.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
-import 'package:starwars_clean_architecture/features/planets/presentation/widgets/loaded_list.dart';
-import 'package:starwars_clean_architecture/features/planets/presentation/bloc/planets_event.dart';
 import 'package:starwars_clean_architecture/features/planets/presentation/bloc/bloc.dart';
+import 'package:starwars_clean_architecture/features/planets/presentation/bloc/planets_event.dart';
+import 'package:starwars_clean_architecture/features/planets/presentation/widgets/loaded_list.dart';
 
 import '../../../../injection_container.dart';
 
@@ -49,8 +49,7 @@ class PlanetList extends StatelessWidget {
                     } else if (state is Loading) {
                       return Progress();
                     } else if (state is Loaded) {
-                      return LoadedList(
-                          planetList: state.listOfPlanets);
+                      return LoadedList(planetList: state.listOfPlanets);
                     } else if (state is Error) {
                       return ConnectionError();
                     } else {

@@ -68,7 +68,7 @@ I'm consuming the APIs from [SWAPI](https://swapi.dev/).
 
 ### Some Improvements I'm planning to do
 - [ ] Create Tests for Films, Planets, Starships, Species, Vehicles and Core components*
-- [ ] Finish Planets screen
+- [X] Finish Planets screen
 - [X] Switch Theme structure (Shared Preferences)
 - [ ] Switch between Light/Dark Theme - (Probably I will include it on Drawer, AppBar or Both, I already started it)
 - [ ] Develop the local data structure (local database)
