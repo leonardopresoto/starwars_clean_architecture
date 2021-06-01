@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:starwars_clean_architecture/core/config/app_colors.dart';
 import 'package:starwars_clean_architecture/core/config/app_config.dart';
 import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
+import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
 import 'package:starwars_clean_architecture/features/films/presentation/pages/film_list.dart';
 import 'package:starwars_clean_architecture/features/people/presentation/pages/person_list.dart';
@@ -19,10 +20,13 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeStarWarsApp().darkTheme,
+      theme: Utils().isLightTheme()? ThemeStarWarsApp().lightTheme:ThemeStarWarsApp().darkTheme ,
       home: Scaffold(
         drawer: MyDrawer(),
         appBar: AppBar(
+          actions: [
+            IconButton(icon: Utils().isLightTheme()? Icon(Icons.wb_sunny):Icon(Icons.nightlight_round), onPressed: () => {Utils().showAlertDialog(context) }),
+          ],
           centerTitle: true,
           title: Text(
             SCREEN_TITLE,

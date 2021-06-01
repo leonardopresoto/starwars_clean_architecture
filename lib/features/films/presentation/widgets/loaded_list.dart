@@ -57,7 +57,7 @@ class _LoadedListState extends State<LoadedList> {
           child: Column(
             children: <Widget>[
               _buildCarouselSlider(listOfFilms),
-              _buildCarouselLegend(),
+             _buildCarouselLegend(),
               FilmContent(data: information)
             ],
           ),
@@ -123,12 +123,12 @@ class _LoadedListState extends State<LoadedList> {
             color: _currentIndex == index ? YELLOW_STARWARS : (Utils().isLightTheme())? Colors.grey:Colors.white,
           ),
         );
-      }) as List<Widget>,
+      }),
     );
   }
 
-  List<T?> map<T>(List list, Function handler) {
-    List<T?> result = [];
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
     for (var i = 0; i < list.length; i++) {
       result.add(handler(i, list[i]));
     }

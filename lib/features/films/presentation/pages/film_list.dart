@@ -4,6 +4,7 @@ import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
 import 'package:starwars_clean_architecture/core/utils/components/connection_error.dart';
 import 'package:starwars_clean_architecture/core/utils/components/progress.dart';
 import 'package:starwars_clean_architecture/core/utils/components/unknown_error.dart';
+import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
 import 'package:starwars_clean_architecture/features/films/presentation/bloc/films_event.dart';
 import 'package:starwars_clean_architecture/features/films/presentation/bloc/bloc.dart';
@@ -17,7 +18,7 @@ class FilmList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeStarWarsApp().darkTheme,
+        theme: Utils().isLightTheme()? ThemeStarWarsApp().lightTheme:ThemeStarWarsApp().darkTheme,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         drawer: MyDrawer(),
