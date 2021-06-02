@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
 import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 import 'package:starwars_clean_architecture/features/drawer/presentation/drawer/my_drawer.dart';
@@ -11,105 +12,107 @@ class PersonDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeStarWarsApp().darkTheme,
-      home: Scaffold(
-        drawer: MyDrawer(),
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () => Navigator.pop(context),
-          ),
-          centerTitle: true,
-          title: Text(
-            person.name!,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
+    return Consumer<ThemeStarWarsAppNotifier>(
+      builder: (context, theme, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: theme.getTheme(),
+        home: Scaffold(
+          drawer: MyDrawer(),
+          appBar: AppBar(
+            leading: BackButton(
+              onPressed: () => Navigator.pop(context),
+            ),
+            centerTitle: true,
+            title: Text(
+              person.name!,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              Container(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                        Utils().randomColor(),
-                        Utils().randomColor()
-                      ])),
-                  child: Container(
-                    width: double.infinity,
-                    height: Utils().screenSafeAreaHeight(context),
-                    child: Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Expanded(
-                            flex: 45,
-                            child: Image.asset(
-                              person.image!,
+          body: SafeArea(
+            child: Column(
+              children: <Widget>[
+                Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                          Utils().randomColor(),
+                          Utils().randomColor()
+                        ])),
+                    child: Container(
+                      width: double.infinity,
+                      height: Utils().screenSafeAreaHeight(context),
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              flex: 45,
+                              child: Image.asset(
+                                person.image!,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            flex: 55,
-                            child: SingleChildScrollView(
-                              child: Card(
-                                margin: EdgeInsets.symmetric(
-                                    horizontal: 0, vertical: 0.0),
-                                clipBehavior: Clip.antiAlias,
-                                color: Colors.black26,
-                                elevation: 5.0,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 4.0, right: 4, top: 15, bottom: 0),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 8, right: 8, bottom: 5),
-                                        child:
-                                            _centerRow("Name : ", person.name!),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 8, right: 8, bottom: 20),
-                                        child: _centerRow(
-                                            "Home World : ", person.homeworld!),
-                                      ),
-                                      _threeDataRow(
-                                          "Birth Year",
-                                          person.birthYear!,
-                                          "Height",
-                                          person.height!,
-                                          "Mass",
-                                          person.mass!),
-                                      _threeDataRow(
-                                          "Gender",
-                                          person.gender!,
-                                          "Skin Color",
-                                          person.skinColor!,
-                                          "Eye Color",
-                                          person.eyeColor!),
-                                      _listRow("Films : ", person.films!),
-                                      _listRow("Species : ", person.species!),
-                                      _listRow(
-                                          "Starships : ", person.starships!),
-                                      _listRow("Vehicles : ", person.vehicles!),
-                                    ],
+                            Expanded(
+                              flex: 55,
+                              child: SingleChildScrollView(
+                                child: Card(
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0.0),
+                                  clipBehavior: Clip.antiAlias,
+                                  color: Colors.black26,
+                                  elevation: 5.0,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 4.0, right: 4, top: 15, bottom: 0),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8, bottom: 5),
+                                          child:
+                                              _centerRow("Name : ", person.name!),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8, bottom: 20),
+                                          child: _centerRow(
+                                              "Home World : ", person.homeworld!),
+                                        ),
+                                        _threeDataRow(
+                                            "Birth Year",
+                                            person.birthYear!,
+                                            "Height",
+                                            person.height!,
+                                            "Mass",
+                                            person.mass!),
+                                        _threeDataRow(
+                                            "Gender",
+                                            person.gender!,
+                                            "Skin Color",
+                                            person.skinColor!,
+                                            "Eye Color",
+                                            person.eyeColor!),
+                                        _listRow("Films : ", person.films!),
+                                        _listRow("Species : ", person.species!),
+                                        _listRow(
+                                            "Starships : ", person.starships!),
+                                        _listRow("Vehicles : ", person.vehicles!),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  )),
-            ],
+                    )),
+              ],
+            ),
           ),
         ),
       ),

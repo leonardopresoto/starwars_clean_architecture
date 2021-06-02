@@ -50,7 +50,7 @@ class VehicleListPageState extends State<VehicleListPage> {
   ExpandableTheme _buildExpandableTheme(List<Vehicle> vehicleList) {
     return ExpandableTheme(
       data: ExpandableThemeData(
-        iconColor: (Utils().isLightTheme())? Colors.black:YELLOW_STARWARS,
+        iconColor: Theme.of(context).accentIconTheme.color,
         useInkWell: true,
       ),
       child: Container(

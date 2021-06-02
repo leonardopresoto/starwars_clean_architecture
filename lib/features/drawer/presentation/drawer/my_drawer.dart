@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:starwars_clean_architecture/core/config/app_colors.dart';
 import 'package:starwars_clean_architecture/features/dashboard/presentation/dashboard/dashboard.dart';
 import 'package:starwars_clean_architecture/features/films/presentation/pages/film_list.dart';
 import 'package:starwars_clean_architecture/features/people/presentation/pages/person_list.dart';
@@ -14,11 +15,16 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          SizedBox(height: 40),
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: YELLOW_STARWARS
+            ),
+            child: Center(child: Image.asset("assets/dashboard/startitle.png", fit: BoxFit.cover, width: 200,), ),
+          ),
           DrawerListTile(
             title: "Dashboard",
-            redirectTo: Dashboard(),
             icon: Icons.description,
+            redirectTo: Dashboard(),
           ),
           DrawerListTile(
             title: "Movies",
@@ -71,10 +77,10 @@ class DrawerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon),
+      leading: Icon(icon, color: Theme.of(context).accentIconTheme.color,),
       title: Text(
         title,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        style: TextStyle(color:Theme.of(context).accentIconTheme.color,fontWeight: FontWeight.bold, fontSize: 20),
       ),
       onTap: () {
         Navigator.push(

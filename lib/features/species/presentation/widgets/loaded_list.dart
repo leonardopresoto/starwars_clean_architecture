@@ -1,6 +1,5 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:starwars_clean_architecture/core/config/app_colors.dart';
 import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 import 'package:starwars_clean_architecture/features/species/domain/entities/specie.dart';
 import 'package:starwars_clean_architecture/features/species/presentation/widgets/specie_card.dart';
@@ -39,17 +38,17 @@ class SpecieListPage extends StatefulWidget {
 class SpecieListPageState extends State<SpecieListPage> {
   @override
   Widget build(BuildContext context) {
-    return _buildStatusPage(widget.specieList);
+    return _buildStatusPage(widget.specieList, context);
   }
 
-  StatelessWidget _buildStatusPage(List<Specie> specieList) {
-    return _buildExpandableTheme(specieList);
+  StatelessWidget _buildStatusPage(List<Specie> specieList, BuildContext context) {
+    return _buildExpandableTheme(specieList, context);
   }
 
-  ExpandableTheme _buildExpandableTheme(List<Specie> specieList) {
+  ExpandableTheme _buildExpandableTheme(List<Specie> specieList, BuildContext context) {
     return ExpandableTheme(
       data: ExpandableThemeData(
-        iconColor: (Utils().isLightTheme())? Colors.black:YELLOW_STARWARS,
+        iconColor: Theme.of(context).accentIconTheme.color,
         useInkWell: true,
       ),
       child: Container(

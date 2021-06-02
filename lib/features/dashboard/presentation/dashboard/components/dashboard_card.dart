@@ -45,14 +45,13 @@ class DashboardCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(title,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
+                            style: Theme.of(context).textTheme.headline6,
                             textAlign: TextAlign.left),
                         Padding(
                           padding: const EdgeInsets.only(top: 16.0),
                           child: Text(
                             subtitle,
-                            style: TextStyle(fontSize: 12),
+                            style: Theme.of(context).textTheme.caption,
                             textAlign: TextAlign.start,
                           ),
                         ),

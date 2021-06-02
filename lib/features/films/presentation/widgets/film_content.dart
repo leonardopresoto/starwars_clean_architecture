@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:starwars_clean_architecture/core/config/app_colors.dart';
+import 'package:provider/provider.dart';
+import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
 import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 
 
@@ -13,52 +14,55 @@ class FilmContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        children: [
-          _rowCenter("Title : ", 20, data[0], 25),
-          _rowCenter("Release : ", 10, data[1], 15),
-          _buildDivider(context),
-          _rowSimpleData("Director : ", data[2]),
-          _rowSimpleData(
-              "Producer : ", data[3].replaceAll(", ", "\r\n")),
-          _buildDivider(context),
-          Padding(
-            padding: const EdgeInsets.only(top: 10.0),
-            child: Row(
-              children: [
-                Text("Opening Crawl : ", style: TextStyle(fontSize: 15)),
-              ],
+    return Consumer<ThemeStarWarsAppNotifier>(
+      builder: (context, theme, child) => Container(
+        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            _rowCenter("Title : ", 20, data[0], 25),
+            _rowCenter("Release : ", 10, data[1], 15),
+            _buildDivider(context),
+            _rowSimpleData("Director : ", data[2]),
+            _rowSimpleData(
+                "Producer : ", data[3].replaceAll(", ", "\r\n")),
+            _buildDivider(context),
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Row(
+                children: [
+                  Text("Opening Crawl : ", style: TextStyle(fontSize: 15)),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "${data[4]}",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: _defineTextColor()),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "${data[4]}",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        // color: _defineTextColor()
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          _buildDivider(context),
-          _rowList("Characters :", Utils().prepareLists(data[5])),
-          _buildDivider(context),
-          _rowList("Planets : ", Utils().prepareLists(data[6])),
-          _buildDivider(context),
-          _rowList("Starship : ", Utils().prepareLists(data[7])),
-          _buildDivider(context),
-          _rowList("Vehicles : ", Utils().prepareLists(data[8])),
-          _buildDivider(context),
-          _rowList("Species : ", Utils().prepareLists(data[9])),
-        ],
+            _buildDivider(context),
+            _rowList("Characters :", Utils().prepareLists(data[5])),
+            _buildDivider(context),
+            _rowList("Planets : ", Utils().prepareLists(data[6])),
+            _buildDivider(context),
+            _rowList("Starship : ", Utils().prepareLists(data[7])),
+            _buildDivider(context),
+            _rowList("Vehicles : ", Utils().prepareLists(data[8])),
+            _buildDivider(context),
+            _rowList("Species : ", Utils().prepareLists(data[9])),
+          ],
+        ),
       ),
     );
   }
@@ -77,7 +81,8 @@ class FilmContent extends StatelessWidget {
           style: TextStyle(
               fontSize: dataSize,
               fontWeight: FontWeight.bold,
-              color: _defineTextColor()),
+              // color: _defineTextColor()
+          ),
         ),
       ],
     );
@@ -98,7 +103,8 @@ class FilmContent extends StatelessWidget {
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: _defineTextColor()),
+                // color: _defineTextColor()
+            ),
           ),
         ],
       ),
@@ -118,7 +124,8 @@ class FilmContent extends StatelessWidget {
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: _defineTextColor()),
+                // color: _defineTextColor()
+            ),
           ))),
         ],
       ),
@@ -131,11 +138,8 @@ class FilmContent extends StatelessWidget {
       indent: MediaQuery.of(context).size.width / widthMargin,
       endIndent: MediaQuery.of(context).size.width / widthMargin,
       thickness: 1,
-      color: _defineTextColor(),
+      // color: _defineTextColor(),
     );
   }
 
-  Color _defineTextColor() {
-    return(Utils().isLightTheme())? Colors.black:YELLOW_STARWARS;
-  }
 }

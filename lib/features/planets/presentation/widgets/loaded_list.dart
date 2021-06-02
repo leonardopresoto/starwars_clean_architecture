@@ -10,14 +10,16 @@ const String SCREEN_TITLE = "List of Planets";
 class LoadedList extends StatelessWidget {
   const LoadedList({
     Key? key,
-    required this.planetList,
+    required this.planetList, 
+    required this.isLightTheme,
   }) : super(key: key);
 
   final List<Planet> planetList;
+  final bool isLightTheme;
 
   @override
   Widget build(BuildContext context) {
-    return PlanetListPage(planetList: planetList);
+    return PlanetListPage(planetList: planetList, isLightTheme: isLightTheme,);
   }
 }
 
@@ -25,9 +27,11 @@ class PlanetListPage extends StatefulWidget {
   const PlanetListPage({
     Key? key,
     required this.planetList,
+    required this.isLightTheme,
   }) : super(key: key);
 
   final List<Planet> planetList;
+  final bool isLightTheme;
 
   @override
   State createState() {
@@ -44,7 +48,6 @@ class PlanetListPageState extends State<PlanetListPage> {
   ExpandableTheme _buildExpandableTheme(List<Planet> planetList) {
     return ExpandableTheme(
       data: ExpandableThemeData(
-        iconColor: (Utils().isLightTheme()) ? Colors.black : YELLOW_STARWARS,
         useInkWell: true,
       ),
       child: Container(

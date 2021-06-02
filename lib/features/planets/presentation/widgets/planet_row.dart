@@ -67,7 +67,6 @@ class PlanetRow extends StatelessWidget {
             margin: EdgeInsets.symmetric(vertical: 8.0),
             height: 2.0,
             width: 80.0,
-            color: YELLOW_STARWARS,
           ),
           Row(
             children: <Widget>[

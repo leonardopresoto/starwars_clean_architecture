@@ -49,7 +49,7 @@ class StarshipListPageState extends State<StarshipListPage> {
   ExpandableTheme _buildExpandableTheme(List<Starship> starshipList) {
     return ExpandableTheme(
             data: ExpandableThemeData(
-              iconColor: (Utils().isLightTheme())? Colors.black:YELLOW_STARWARS,
+              iconColor: Theme.of(context).accentIconTheme.color,
               useInkWell: true,
             ),
             child: Container(
