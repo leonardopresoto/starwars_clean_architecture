@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:starwars_clean_architecture/core/config/app_colors.dart';
 import 'package:starwars_clean_architecture/core/utils/components/utils.dart';
 import 'package:starwars_clean_architecture/features/films/domain/entities/film.dart';
 
@@ -119,6 +120,7 @@ class _LoadedListState extends State<LoadedList> {
           margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 2.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
+            color: _currentIndex == index ? YELLOW_STARWARS : Colors.grey,
           ),
         );
       }),

@@ -53,15 +53,18 @@ I'm consuming the APIs from [SWAPI](https://swapi.dev/).
 <h2>Screenshots </h2>
 
 <p align="center">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/dashboard.jpg" width="200" title="Dashboard screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/movies.jpg" width="200" alt="Films screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/characters.jpg" width="200" alt="Character screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/characters-details.jpg" width="200" alt="Character details screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/starships.jpg" width="200" alt="Starships screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/starships-details.jpg" width="200" alt="Character details screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/vehicles.jpg" width="200" alt="Vehicles screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/species.jpg" width="200" alt="Species screen">
-  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/planets.jpg" width="200" alt="Planets screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/dashboard.png" width="200" title="Dashboard screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/drawer.png" width="200" title="Side Menu">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/movies.png" width="200" alt="Films screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/characters.png" width="200" alt="Character screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/characters-details.png" width="200" alt="Character details screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/starships.png" width="200" alt="Starships screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/vehicles.png" width="200" alt="Vehicles screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/species.png" width="200" alt="Species screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/planets.png" width="200" alt="Planets screen">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/connect-error.png" width="200" alt="Connection error">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/light-dashboard.png" width="200" alt="Light Dashboard">
+  <img src="https://github.com/leonardopresoto/starwars_clean_architecture/blob/main/screenshots/light-drawer.png" width="200" alt="Light Side Menu">
 </p>
 
 <h2>To Do: </h2>
