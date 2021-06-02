@@ -70,19 +70,21 @@ I'm consuming the APIs from [SWAPI](https://swapi.dev/).
 - [ ] Create Tests for Films, Planets, Starships, Species, Vehicles and Core components*
 - [X] Finish Planets screen
 - [X] Switch Theme structure (Shared Preferences)
-- [ ] Switch between Light/Dark Theme - (Probably I will include it on Drawer, AppBar or Both, I already started it)
+- [X] Switch between Light/Dark Theme - (Probably I will include it on ~~Drawer,~~ AppBar ~~or Both.~~)
+- [X] Identify any SharePreferences change using ~~Get_it~~ Provider**.
 - [ ] Develop the local data structure (local database)
-- [ ] Get the online data only once (after that use local data (local database)
-- [ ] Identify any SharePreferences change using Get_it
+- [ ] Download the online data only once (after that use local data -local database-)
 - [ ] Identify any DataBase change using Get_it
 - [ ] Layout Improvements on Lists (Like list of movies on Character Detail Page. Replace id by tile)
 - [ ] Optimize the similar code between different features
 - [ ] Check if the Clean Architecture concepts are still being properly used
 - [ ] \(Optional) Include images (no background preferably) for Vehicles, Species and Planets
-- [ ] \(Optional) Layout Update (more professional layout)
+- [ ] \(Optional) Layout Update (design a more professional layout)
 
 (*)I know it's wrong to write tests later, but I was learning about Clean Arch not TDD. However, when 
 finish developing the People feature, I did the others by using CTRL+C/CTRL+V (... And I was too lazy 
 to do the tests).
+
+(**) For a professional project, I would choose Get_It OR Provider . However, here I am using both to be able to show the utilization of as many resources as possible.
 
 Any suggestion, please let me know!
