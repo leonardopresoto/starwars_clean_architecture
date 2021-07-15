@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:starwars_clean_architecture/core/errors/failures.dart';
 import 'package:starwars_clean_architecture/core/usecases/usecases.dart';
 import 'package:starwars_clean_architecture/features/people/domain/entities/person.dart';

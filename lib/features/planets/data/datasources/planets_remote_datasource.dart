@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:meta/meta.dart';
+import 'package:starwars_clean_architecture/core/config/app_config.dart';
+import 'package:starwars_clean_architecture/core/config/http_routes.dart';
 import 'package:starwars_clean_architecture/core/errors/exceptions.dart';
 import 'package:starwars_clean_architecture/features/planets/data/models/planets_model.dart';
 
@@ -25,7 +26,7 @@ class PlanetsRemoteDataSourceImpl implements PlanetsRemoteDataSource {
     Response response;
 
     response = await client!
-        .get(Uri.parse("http://swapi.dev/api/planets/?page=$pageNumber"));
+        .get(Uri.parse("${AppConfig.urlApi}/${HttpRoutes.GET_List_of_Planets}$pageNumber"));
 
     if (response.statusCode == 200) {
       jsonMap = json.decode(response.body);

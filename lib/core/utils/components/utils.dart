@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:starwars_clean_architecture/core/theme/theme_manager.dart';
 
 class Utils {
   double screenSafeAreaHeight(BuildContext context) {

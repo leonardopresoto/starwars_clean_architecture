@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:meta/meta.dart';
+import 'package:starwars_clean_architecture/core/config/app_config.dart';
+import 'package:starwars_clean_architecture/core/config/http_routes.dart';
 import 'package:starwars_clean_architecture/core/errors/exceptions.dart';
 import 'package:starwars_clean_architecture/features/people/data/models/people_model.dart';
 
@@ -25,7 +26,7 @@ class PeopleRemoteDataSourceImpl implements PeopleRemoteDataSource {
     Response response;
 
     response = await client!
-        .get(Uri.parse("http://swapi.dev/api/people/?page=$pageNumber"));
+        .get(Uri.parse("${AppConfig.urlApi}/${HttpRoutes.GET_List_of_People}$pageNumber"));
 
     if (response.statusCode == 200) {
       jsonMap = json.decode(response.body);
