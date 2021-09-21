@@ -1,0 +1,16 @@
+_id: env_3ff3287a75baa6b779602d9c2726c75efe766bb6
+type: Environment
+parentId: wrk_e1d6aa1d64844a95952e1a2d59f941df
+modified: 1631847179903
+created: 1631674418033
+name: Base Environment
+data:
+  people: people
+  films: films
+dataPropertyOrder:
+  "&":
+    - people
+    - films
+color: null
+isPrivate: false
+metaSortKey: 1631674418033

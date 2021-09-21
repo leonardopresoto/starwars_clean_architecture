@@ -1,0 +1,131 @@
+_id: req_cd558b406fba476fae1f5ef71cc0950c
+type: Request
+parentId: wrk_e1d6aa1d64844a95952e1a2d59f941df
+modified: 1631850284847
+created: 1631840605132
+url: "{{ _.base_url }}/{{ _.people }}/"
+name: People
+description: >-
+  ### People
+
+
+  A People resource is an individual person or character within the Star Wars universe.
+
+
+  **Endpoints**
+
+
+  -   `/people/`  -- get all the people resources
+
+  -   `/people/:id/`  -- get a specific people resource
+
+  -   `/people/schema/`  -- view the JSON schema for this resource
+
+
+  **Example request:**
+
+
+  ```
+
+  http https://swapi.dev/api/people/1/
+
+
+  ```
+
+
+  **Example response:**
+
+
+  ```
+
+  HTTP/1.0 200 OK
+
+  Content-Type: application/json
+
+  {
+      "birth_year": "19 BBY",
+      "eye_color": "Blue",
+      "films": [
+          "https://swapi.dev/api/films/1/",
+          ...
+      ],
+      "gender": "Male",
+      "hair_color": "Blond",
+      "height": "172",
+      "homeworld": "https://swapi.dev/api/planets/1/",
+      "mass": "77",
+      "name": "Luke Skywalker",
+      "skin_color": "Fair",
+      "created": "2014-12-09T13:50:51.644000Z",
+      "edited": "2014-12-10T13:52:43.172000Z",
+      "species": [
+          "https://swapi.dev/api/species/1/"
+      ],
+      "starships": [
+          "https://swapi.dev/api/starships/12/",
+          ...
+      ],
+      "url": "https://swapi.dev/api/people/1/",
+      "vehicles": [
+          "https://swapi.dev/api/vehicles/14/"
+          ...
+      ]
+  }
+
+
+  ```
+
+
+  **Attributes:**
+
+
+  -   `name`  _string_  -- The name of this person.
+
+  -   `birth_year`  _string_  -- The birth year of the person, using the in-universe standard of  **BBY**  or  **ABY**  - Before the Battle of Yavin or After the Battle of Yavin. The Battle of Yavin is a battle that occurs at the end of Star Wars episode IV: A New Hope.
+
+  -   `eye_color`  _string_  -- The eye color of this person. Will be "unknown" if not known or "n/a" if the person does not have an eye.
+
+  -   `gender`  _string_  -- The gender of this person. Either "Male", "Female" or "unknown", "n/a" if the person does not have a gender.
+
+  -   `hair_color`  _string_  -- The hair color of this person. Will be "unknown" if not known or "n/a" if the person does not have hair.
+
+  -   `height`  _string_  -- The height of the person in centimeters.
+
+  -   `mass`  _string_  -- The mass of the person in kilograms.
+
+  -   `skin_color`  _string_  -- The skin color of this person.
+
+  -   `homeworld`  _string_  -- The URL of a planet resource, a planet that this person was born on or inhabits.
+
+  -   `films`  _array_  -- An array of film resource URLs that this person has been in.
+
+  -   `species`  _array_  -- An array of species resource URLs that this person belongs to.
+
+  -   `starships`  _array_  -- An array of starship resource URLs that this person has piloted.
+
+  -   `vehicles`  _array_  -- An array of vehicle resource URLs that this person has piloted.
+
+  -   `url`  _string_  -- the hypermedia URL of this resource.
+
+  -   `created`  _string_  -- the ISO 8601 date format of the time that this resource was created.
+
+  -   `edited`  _string_  -- the ISO 8601 date format of the time that this resource was edited.
+
+
+  **Search Fields:**
+
+
+  -   `name`
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1631847625477.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,10 @@
+_id: ut_1ada37f992d94b368d5471844cd2981d
+type: UnitTest
+parentId: uts_8f3e0e77cf3e4383a03fda2b6b6c8e4b
+modified: 1632190372833
+created: 1632190207693
+requestId: req_cd78d8a7228340feaf70b81585e25629
+name: Return Fisrt Movie
+code: |-
+  const response1 = await insomnia.send();
+  expect(response1.status).to.equal(200);

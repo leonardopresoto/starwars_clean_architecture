@@ -1,0 +1,10 @@
+_id: ut_0a24a534af204d9b96c977dc0a8d8fd9
+type: UnitTest
+parentId: uts_18149b67479f457aa3ddf33746a869c0
+modified: 1631851269125
+created: 1631850755185
+requestId: req_cd558b406fba476fae1f5ef71cc0950c
+name: Data is an String
+code: |-
+  const response = await insomnia.send();
+  	expect(response.data).to.be.an('string');

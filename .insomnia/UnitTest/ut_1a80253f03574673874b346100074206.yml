@@ -1,0 +1,12 @@
+_id: ut_1a80253f03574673874b346100074206
+type: UnitTest
+parentId: uts_8f3e0e77cf3e4383a03fda2b6b6c8e4b
+modified: 1632190420083
+created: 1632189056198
+requestId: req_bab2bfc25b154b7990d77eaaadc5970e
+name: Person Not Found
+code: |
+  const response1 = await insomnia.send();
+  expect(response1.status).to.equal(200);
+  const data = JSON.parse(response1.data);
+  expect(data).to.be.a('object');
