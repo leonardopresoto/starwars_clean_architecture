@@ -1,0 +1,14 @@
+_id: env_a7cb1bb142164758bf0eef743cd8ae9e
+type: Environment
+parentId: env_3ff3287a75baa6b779602d9c2726c75efe766bb6
+modified: 1631850202961
+created: 1631846955718
+name: HOM
+data:
+  base_url: https://swapi.dev/api
+dataPropertyOrder:
+  "&":
+    - base_url
+color: "#f8e80d"
+isPrivate: false
+metaSortKey: 1631846955718

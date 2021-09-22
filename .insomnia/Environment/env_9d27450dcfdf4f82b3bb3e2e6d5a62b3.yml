@@ -1,0 +1,14 @@
+_id: env_9d27450dcfdf4f82b3bb3e2e6d5a62b3
+type: Environment
+parentId: env_3ff3287a75baa6b779602d9c2726c75efe766bb6
+modified: 1631850198852
+created: 1631846909301
+name: DEV
+data:
+  base_url: https://swapi.dev/api
+dataPropertyOrder:
+  "&":
+    - base_url
+color: "#0ce208"
+isPrivate: false
+metaSortKey: 1631846909301

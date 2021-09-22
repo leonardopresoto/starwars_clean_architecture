@@ -1,0 +1,28 @@
+_id: req_e964539e34db4226b6c71a3ea09ac86d
+type: Request
+parentId: wrk_e1d6aa1d64844a95952e1a2d59f941df
+modified: 1631885402372
+created: 1631847697901
+url: "{{ _.base_url }}/{{ _.people }}/{% response 'body',
+  'req_e9e65e138f3c441f987dc4c99d730ca4', 'b64::JC5jb3VudA==::46b', 'never', 60
+  %}"
+name: Person
+description: Return a specific Character
+method: GET
+body:
+  mimeType: application/json
+  text: ""
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_48fb76fa7afc4673b2b747a7534423e8
+authentication: {}
+metaSortKey: -1631847625427.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

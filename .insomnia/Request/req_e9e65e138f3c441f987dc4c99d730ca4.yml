@@ -1,0 +1,130 @@
+_id: req_e9e65e138f3c441f987dc4c99d730ca4
+type: Request
+parentId: fld_4ba4b05ee4e6414e8c29d78b1ebf0507
+modified: 1631883541812
+created: 1631847077323
+url: "{{ _.base_url }}/{{ _.films }}"
+name: FILMS
+description: >-
+  
+  ### Films
+
+
+  A Film resource is a single film.
+
+
+  **Endpoints**
+
+
+  -   `/films/`  -- get all the film resources
+
+  -   `/films/:id/`  -- get a specific film resource
+
+  -   `/films/schema/`  -- view the JSON schema for this resource
+
+
+  **Example request:**
+
+
+  ```
+
+  http https://swapi.dev/api/films/1/
+
+
+  ```
+
+
+  **Example response:**
+
+
+  ```
+
+  HTTP/1.0 200 OK
+
+  Content-Type: application/json
+
+  {
+      "characters": [
+          "https://swapi.dev/api/people/1/",
+          ...
+      ],
+      "created": "2014-12-10T14:23:31.880000Z",
+      "director": "George Lucas",
+      "edited": "2014-12-12T11:24:39.858000Z",
+      "episode_id": 4,
+      "opening_crawl": "It is a period of civil war ...",
+      "planets": [
+          "https://swapi.dev/api/planets/1/",
+          ...
+      ],
+      "producer": "Gary Kurtz, Rick McCallum",
+      "release_date": "1977-05-25",
+      "species": [
+          "https://swapi.dev/api/species/1/",
+          ...
+      ],
+      "starships": [
+          "https://swapi.dev/api/starships/2/",
+          ...
+      ],
+      "title": "A New Hope",
+      "url": "https://swapi.dev/api/films/1/",
+      "vehicles": [
+          "https://swapi.dev/api/vehicles/4/",
+          ...
+      ]
+  }
+
+
+  ```
+
+
+  **Attributes:**
+
+
+  -   `title`  _string_  -- The title of this film
+
+  -   `episode_id`  _integer_  -- The episode number of this film.
+
+  -   `opening_crawl`  _string_  -- The opening paragraphs at the beginning of this film.
+
+  -   `director`  _string_  -- The name of the director of this film.
+
+  -   `producer`  _string_  -- The name(s) of the producer(s) of this film. Comma separated.
+
+  -   `release_date`  _date_  -- The ISO 8601 date format of film release at original creator country.
+
+  -   `species`  _array_  -- An array of species resource URLs that are in this film.
+
+  -   `starships`  _array_  -- An array of starship resource URLs that are in this film.
+
+  -   `vehicles`  _array_  -- An array of vehicle resource URLs that are in this film.
+
+  -   `characters`  _array_  -- An array of people resource URLs that are in this film.
+
+  -   `planets`  _array_  -- An array of planet resource URLs that are in this film.
+
+  -   `url`  _string_  -- the hypermedia URL of this resource.
+
+  -   `created`  _string_  -- the ISO 8601 date format of the time that this resource was created.
+
+  -   `edited`  _string_  -- the ISO 8601 date format of the time that this resource was edited.
+
+
+  **Search Fields:**
+
+
+  -   `title`
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1631865606768.5625
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

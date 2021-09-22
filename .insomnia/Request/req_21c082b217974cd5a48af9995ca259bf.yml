@@ -1,0 +1,23 @@
+_id: req_21c082b217974cd5a48af9995ca259bf
+type: Request
+parentId: fld_4ba4b05ee4e6414e8c29d78b1ebf0507
+modified: 1631883543519
+created: 1631847553054
+url: "{{ _.base_url }}/{{ _.films }}/{% response 'body',
+  'req_e9e65e138f3c441f987dc4c99d730ca4', 'b64::JC5jb3VudA==::46b', 'always', 60
+  %}"
+name: Film
+description: Return a specific film
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1631865606818.5625
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

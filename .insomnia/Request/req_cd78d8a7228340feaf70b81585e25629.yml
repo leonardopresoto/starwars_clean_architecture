@@ -1,0 +1,22 @@
+_id: req_cd78d8a7228340feaf70b81585e25629
+type: Request
+parentId: fld_c2a538b3178f4b66a79c5877bfdd8e07
+modified: 1632190346630
+created: 1632190239914
+url: "{% response 'body', 'req_bab2bfc25b154b7990d77eaaadc5970e',
+  'b64::JC5maWxtc1swXQ==::46b', 'never', 60 %}"
+name: "[Success] First Movie"
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1632172365217.6914
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

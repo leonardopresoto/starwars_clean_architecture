@@ -1,0 +1,13 @@
+_id: ut_1d8f3fb5aa234e0c82843d043f7e6aa4
+type: UnitTest
+parentId: uts_18149b67479f457aa3ddf33746a869c0
+modified: 1631851851095
+created: 1631851281343
+requestId: req_e9e65e138f3c441f987dc4c99d730ca4
+name: (FAILURE) 400
+code: |-
+  const response = await insomnia.send();
+  	const body = JSON.parse(response.data);
+  	const item = body[0];
+
+  	console.log(item);

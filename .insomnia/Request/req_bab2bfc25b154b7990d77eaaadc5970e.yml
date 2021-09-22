@@ -1,0 +1,21 @@
+_id: req_bab2bfc25b154b7990d77eaaadc5970e
+type: Request
+parentId: fld_c2a538b3178f4b66a79c5877bfdd8e07
+modified: 1632190154574
+created: 1632190134729
+url: "{{ _.base_url }}/{{ _.people }}/1"
+name: "[Success] People found"
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1632177865235.461
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
