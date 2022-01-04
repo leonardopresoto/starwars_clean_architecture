@@ -70,6 +70,9 @@ I'm consuming the APIs from [SWAPI](https://swapi.dev/).
 <h2>To Do: </h2>
 
 ### Some Improvements I'm planning to do
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/19f683443501485e8a755b8f60d522ae)](https://app.codacy.com/gh/leonardopresoto/starwars_clean_architecture?utm_source=github.com&utm_medium=referral&utm_content=leonardopresoto/starwars_clean_architecture&utm_campaign=Badge_Grade_Settings)
+
 - [ ] Create Tests for Films, Planets, Starships, Species, Vehicles and Core components*
 - [X] Finish Planets screen
 - [X] Switch Theme structure (Shared Preferences)
